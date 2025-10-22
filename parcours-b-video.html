@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcours B - Capsule Vidéo | Formation IA Niveau 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .header .meta {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #f5576c;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f5576c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+        }
+        
+        .objective-box {
+            background: #fff5f5;
+            border-left: 5px solid #f5576c;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .objective-box h3 {
+            color: #f5576c;
+            margin-bottom: 15px;
+        }
+        
+        .objective-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .objective-box li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .objective-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f5576c;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .timeline {
+            background: linear-gradient(to right, #f093fb, #f5576c);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            font-size: 1.1em;
+            min-width: 100px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding-left: 20px;
+        }
+        
+        .step {
+            background: #fff;
+            border: 2px solid #f5576c;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .step-number {
+            background: #f5576c;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-right: 15px;
+        }
+        
+        .step-title {
+            font-size: 1.5em;
+            color: #f5576c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .prompt-box {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            position: relative;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+        
+        .prompt-label {
+            background: #f5576c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #f5576c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #e04560;
+            transform: translateY(-2px);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+        
+        .example-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .example-box strong {
+            color: #f57c00;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box strong {
+            color: #2e7d32;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box strong {
+            color: #e65100;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .checklist {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .checklist-item {
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .checklist-item:hover {
+            background: #ffe0e6;
+            transform: translateX(5px);
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .tool-link {
+            display: inline-block;
+            background: #f5576c;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .tool-link:hover {
+            background: #e04560;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+        
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .use-case {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .instruction-list {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #f5576c;
+        }
+        
+        .instruction-list ol {
+            padding-left: 20px;
+            line-height: 2;
+        }
+        
+        .instruction-list li {
+            margin: 10px 0;
+        }
+        
+        .instruction-list li strong {
+            color: #f5576c;
+        }
+        
+        .footer {
+            background: #f5f5f5;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #f5576c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+        
+        .back-to-top:hover {
+            background: #e04560;
+            transform: translateY(-5px);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .back-to-top {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎬 PARCOURS B</h1>
+            <div class="subtitle">Capsule Vidéo Pédagogique</div>
+            <div class="meta">
+                <strong>LP Mahina</strong> | M. VAIRAAROA Jimmy<br>
+                Formation IA Niveau 3 : Enrichir ses Contenus<br>
+                Mercredi 22 Octobre 2025
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            
+            <!-- Objectifs -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">🎯</span> Objectifs du Parcours</h2>
+                
+                <div class="objective-box">
+                    <h3>À la suite de ce parcours, vous serez capable de :</h3>
+                    <ul>
+                        <li>Créer un script vidéo percutant de 60-90 secondes</li>
+                        <li>Générer des visuels adaptés à votre scénario</li>
+                        <li>Produire une voix-off professionnelle avec l'IA</li>
+                        <li>Monter une vidéo complète avec sous-titres automatiques</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #fff; border: 2px solid #f5576c; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <p><strong>📌 Pour qui ?</strong> Sensibilisation métier, capsules pédagogiques, révisions, motivation élèves</p>
+                    <p><strong>🎁 Résultat final :</strong> Vidéo 60-90 secondes avec voix-off professionnelle et sous-titres automatiques</p>
+                    <p><strong>🛠️ Outils utilisés :</strong> ChatGPT + DALL-E + ElevenLabs + CapCut</p>
+                    <p><strong>⭐ Niveau :</strong> Intermédiaire (un peu plus technique)</p>
+                    <p><strong>⏱️ Durée :</strong> 60 minutes</p>
+                </div>
+            </section>
+
+            <!-- Timeline -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">⏰</span> Timeline - 60 minutes</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">0-10 min</div>
+                        <div class="timeline-content">
+                            <strong>ÉTAPE 1 : ChatGPT</strong><br>
+                            Créer le script vidéo (90 secondes max)
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">10-25 min</div>
+                        <div class="timeline-content">
+                            <strong>ÉTAPE 2 : DALL-E</strong><br>
+                            Générer 4-5 visuels pour la vidéo
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">25-35 min</div>
+                        <div class="timeline-content">
+                            <strong>ÉTAPE 3 : ElevenLabs</strong><br>
+                            Créer la voix-off professionnelle (IA)
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">35-60 min</div>
+                        <div class="timeline-content">
+                            <strong>ÉTAPE 4 : CapCut</strong><br>
+                            Monter la vidéo + sous-titres automatiques
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Liens rapides -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">🔗</span> Liens Rapides vers les Outils</h2>
+                <div style="text-align: center;">
+                    <a href="https://chat.openai.com" target="_blank" class="tool-link">🤖 ChatGPT + DALL-E</a>
+                    <a href="https://elevenlabs.io" target="_blank" class="tool-link">🎙️ ElevenLabs</a>
+                    <a href="https://www.capcut.com" target="_blank" class="tool-link">🎬 CapCut</a>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 1 -->
+            <section class="section">
+                <div class="step">
+                    <h2 class="step-title">
+                        <span class="step-number">1</span>
+                        ChatGPT - Créer le script (10 min)
+                    </h2>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        <strong>Objectif :</strong> Créer un script de vidéo de 90 secondes maximum, découpé en séquences claires.
+                    </p>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <strong>💡 Astuce :</strong> 1 minute de narration = environ 150 mots. Donc 90 secondes = 225 mots maximum.
+                    </div>
+                    
+                    <h3 style="color: #f5576c; margin: 25px 0 15px 0;">📝 Prompt à utiliser</h3>
+                    
+                    <div class="prompt-label">PROMPT GÉNÉRIQUE SCRIPT VIDÉO</div>
+                    <div class="prompt-box">
+                        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                        <pre style="white-space: pre-wrap; margin: 0;">Tu es scénariste de vidéos pédagogiques courtes pour lycée professionnel.
+
+Crée un script de vidéo de 90 secondes maximum sur [VOTRE SUJET] :
+
+Structure :
+- Accroche (10 sec / 25 mots)
+- 3 points clés (60 sec / 150 mots)
+- Conclusion/Appel à l'action (20 sec / 50 mots)
+
+Public : Élèves de LP en [VOTRE FILIÈRE]
+Ton : Dynamique, motivant, concret
+Format : Numéroter chaque séquence de 1 à 5
+
+Total : 225 mots maximum (= 90 secondes de narration)</pre>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ PERSONNALISEZ :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Remplacez <code>[VOTRE SUJET]</code> par votre thème exact</li>
+                            <li>Remplacez <code>[VOTRE FILIÈRE]</code> par votre spécialité</li>
+                            <li>Adaptez le ton selon votre objectif (sérieux, motivant, informatif...)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="color: #f5576c; margin: 30px 0 15px 0;">💡 Exemples concrets</h3>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 1 : Sécurité en atelier mécanique</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Tu es scénariste de vidéos pédagogiques courtes pour lycée professionnel.
+
+Crée un script de vidéo de 90 secondes maximum sur LA SÉCURITÉ EN ATELIER DE MÉCANIQUE :
+
+Structure :
+- Accroche (10 sec / 25 mots)
+- 3 règles de sécurité essentielles (60 sec / 150 mots)
+- Conclusion/Appel à l'action (20 sec / 50 mots)
+
+Public : Élèves de LP en Maintenance Véhicules
+Ton : Dynamique, sérieux mais accessible, concret
+Format : Numéroter chaque séquence de 1 à 5
+
+Total : 225 mots maximum (= 90 secondes de narration)</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 2 : Motivation avant stage (Hôtellerie)</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Tu es scénariste de vidéos pédagogiques courtes pour lycée professionnel.
+
+Crée un script de vidéo de 90 secondes maximum sur RÉUSSIR SON STAGE EN HÔTELLERIE :
+
+Structure :
+- Accroche (10 sec / 25 mots)
+- 3 clés de succès en stage (60 sec / 150 mots)
+- Conclusion motivante (20 sec / 50 mots)
+
+Public : Élèves de LP en Hôtellerie-Restauration avant leur PFMP
+Ton : Motivant, bienveillant, encourageant
+Format : Numéroter chaque séquence de 1 à 5
+
+Total : 225 mots maximum (= 90 secondes de narration)</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 3 : Présentation métier (Commerce)</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Tu es scénariste de vidéos pédagogiques courtes pour lycée professionnel.
+
+Crée un script de vidéo de 90 secondes maximum sur LE MÉTIER DE VENDEUR EN MAGASIN :
+
+Structure :
+- Accroche (10 sec / 25 mots)
+- 3 aspects du métier (missions, compétences, évolution) (60 sec / 150 mots)
+- Conclusion avec appel à l'action (20 sec / 50 mots)
+
+Public : Élèves de 3ème pour orientation
+Ton : Dynamique, positif, valorisant le métier
+Format : Numéroter chaque séquence de 1 à 5
+
+Total : 225 mots maximum (= 90 secondes de narration)</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Vérifiez votre script :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Le texte fait bien 200-250 mots (pas plus !)</li>
+                            <li>Chaque séquence est numérotée (1 à 5)</li>
+                            <li>Le ton est adapté à votre public</li>
+                            <li>Le message est clair et percutant</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>✅ Résultat attendu :</strong>
+                        Script de 200-250 mots, découpé en 5 séquences numérotées, prêt à être narré.
+                    </div>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 2 -->
+            <section class="section">
+                <div class="step">
+                    <h2 class="step-title">
+                        <span class="step-number">2</span>
+                        DALL-E - Créer les visuels vidéo (15 min)
+                    </h2>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        <strong>Objectif :</strong> Générer 4 images cohérentes qui illustreront chaque partie de votre vidéo.
+                    </p>
+                    
+                    <p style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <strong>📍 Important :</strong> Utilisez le MÊME CHAT que l'étape 1. Continuez la conversation.
+                    </p>
+                    
+                    <h3 style="color: #f5576c; margin: 25px 0 15px 0;">🎨 Prompt à utiliser</h3>
+                    
+                    <div class="prompt-label">PROMPT GÉNÉRIQUE VISUELS VIDÉO</div>
+                    <div class="prompt-box">
+                        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                        <pre style="white-space: pre-wrap; margin: 0;">Génère 4 images pour ma vidéo sur [VOTRE SUJET] :
+
+Image 1 (Accroche) : [VISUEL IMPACTANT D'OUVERTURE]
+Style : Attention-grabbing, dynamique
+
+Image 2 (Point clé 1) : [ILLUSTRATION 1ER POINT]
+Style : Clair, pédagogique
+
+Image 3 (Point clé 2) : [ILLUSTRATION 2ÈME POINT]
+Style : Clair, pédagogique
+
+Image 4 (Conclusion) : [VISUEL POSITIF/MOTIVANT]
+Style : Inspirant, professionnel
+
+Note : Toutes les images doivent avoir une cohérence visuelle (même palette de couleurs, même style)</pre>
+                    </div>
+                    
+                    <h3 style="color: #f5576c; margin: 30px 0 15px 0;">💡 Exemples concrets</h3>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 1 : Sécurité en atelier</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Génère 4 images pour ma vidéo sur LA SÉCURITÉ EN ATELIER :
+
+Image 1 (Accroche) : Atelier de mécanique avec un panneau "DANGER" bien visible, ambiance sérieuse mais moderne
+Style : Attention-grabbing, dynamique
+
+Image 2 (Équipements) : Jeune mécanicien qui porte correctement tous ses EPI (lunettes, gants, chaussures de sécurité), avec check marks verts
+Style : Clair, pédagogique, infographie
+
+Image 3 (Zone de travail) : Atelier bien rangé vs atelier en désordre (split screen avant/après)
+Style : Clair, pédagogique, comparatif
+
+Image 4 (Conclusion) : Équipe de jeunes mécaniciens souriants, pouce levé, dans un atelier sécurisé
+Style : Inspirant, professionnel, positif
+
+Note : Palette de couleurs bleu et orange, style moderne et professionnel</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 2 : Motivation stage hôtellerie</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Génère 4 images pour ma vidéo sur RÉUSSIR SON STAGE EN HÔTELLERIE :
+
+Image 1 (Accroche) : Élève en tenue professionnelle d'hôtellerie devant l'entrée d'un hôtel élégant, regard déterminé
+Style : Attention-grabbing, motivant
+
+Image 2 (Ponctualité) : Réveil qui sonne à 6h du matin, main qui l'arrête avec énergie
+Style : Dynamique, clair
+
+Image 3 (Attitude positive) : Interaction souriante entre stagiaire et chef de cuisine dans une cuisine pro
+Style : Clair, bienveillant, professionnel
+
+Image 4 (Conclusion) : Stagiaire qui reçoit des félicitations de son tuteur, certificat de stage en main, sourire fier
+Style : Inspirant, positif, réussite
+
+Note : Palette chaleureuse (blanc, doré, vert menthe), style réaliste et valorisant</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 3 : Présentation métier vendeur</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Génère 4 images pour ma vidéo sur LE MÉTIER DE VENDEUR :
+
+Image 1 (Accroche) : Vendeuse dynamique en magasin moderne qui accueille un client avec un sourire
+Style : Attention-grabbing, énergique
+
+Image 2 (Missions) : Split screen montrant 3 scènes : conseil client, réassort rayon, caisse
+Style : Infographie claire, moderne
+
+Image 3 (Compétences) : Vendeur en train d'expliquer un produit à un client, bulles de dialogue avec mots-clés (écoute, conseil)
+Style : Pédagogique, illustratif
+
+Image 4 (Évolution) : Parcours de carrière visualisé : vendeur → responsable rayon → directeur magasin (flèche ascendante)
+Style : Inspirant, motivant, schéma clair
+
+Note : Couleurs vives et modernes (bleu, rose, jaune), style cartoon professionnel</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Astuces visuelles :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li><strong>Cohérence :</strong> Demandez la même palette de couleurs pour toutes les images</li>
+                            <li><strong>Téléchargement :</strong> Sauvegardez les 4 images immédiatement après génération</li>
+                            <li><strong>Qualité :</strong> Si une image est floue, redemandez-la avec plus de détails</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>✅ Résultat attendu :</strong>
+                        4 images cohérentes, haute qualité, téléchargées sur votre ordinateur, prêtes pour le montage.
+                    </div>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 3 -->
+            <section class="section">
+                <div class="step">
+                    <h2 class="step-title">
+                        <span class="step-number">3</span>
+                        ElevenLabs - Créer la voix-off (10 min)
+                    </h2>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        <strong>Objectif :</strong> Transformer votre script en narration audio professionnelle avec une voix IA.
+                    </p>
+                    
+                    <h3 style="color: #f5576c; margin: 25px 0 15px 0;">🎙️ Marche à suivre</h3>
+                    
+                    <div class="instruction-list">
+                        <ol>
+                            <li><strong>Aller sur</strong> <a href="https://elevenlabs.io" target="_blank" style="color: #f5576c;">https://elevenlabs.io</a></li>
+                            <li><strong>S'inscrire</strong> (gratuit - 10 000 caractères/mois suffisent largement)</li>
+                            <li><strong>Cliquer</strong> sur "Text to Speech" dans le menu</li>
+                            <li><strong>Copier</strong> votre script ChatGPT
+                                <ul>
+                                    <li>⚠️ <strong>UNIQUEMENT le texte à narrer</strong>, pas les numéros de séquence ni les indications</li>
+                                </ul>
+                            </li>
+                            <li><strong>Choisir</strong> une voix française :
+                                <ul>
+                                    <li><strong>"Antoine"</strong> : Voix masculine sérieuse et professionnelle</li>
+                                    <li><strong>"Charlotte"</strong> : Voix féminine douce et claire</li>
+                                    <li><strong>"Clyde"</strong> : Voix masculine dynamique</li>
+                                    <li>💡 Testez plusieurs voix avec 1 phrase pour choisir</li>
+                                </ul>
+                            </li>
+                            <li><strong>Générer</strong> (bouton "Generate" - prend 30 secondes)</li>
+                            <li><strong>Écouter</strong> le résultat
+                                <ul>
+                                    <li>Si ça ne vous plaît pas, changez de voix et régénérez</li>
+                                </ul>
+                            </li>
+                            <li><strong>Télécharger</strong> le fichier MP3 (icône téléchargement)</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Conseils voix-off :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li><strong>Ponctuation :</strong> Ajoutez des virgules pour créer des pauses naturelles</li>
+                            <li><strong>Ton :</strong> Les voix s'adaptent au contexte (! pour enthousiasme, ... pour suspense)</li>
+                            <li><strong>Test :</strong> Écoutez TOUJOURS avant de valider</li>
+                            <li><strong>Gratuit :</strong> 10 000 caractères/mois = environ 15 vidéos de 90 sec</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ Alternative si ElevenLabs ne fonctionne pas :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Utilisez votre propre voix (enregistrement smartphone)</li>
+                            <li>Ou enregistrez directement dans CapCut à l'étape suivante</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>✅ Résultat attendu :</strong>
+                        Fichier audio MP3 de 90 secondes, voix professionnelle, prêt à intégrer dans CapCut.
+                    </div>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 4 -->
+            <section class="section">
+                <div class="step">
+                    <h2 class="step-title">
+                        <span class="step-number">4</span>
+                        CapCut - Monter la vidéo (25 min)
+                    </h2>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        <strong>Objectif :</strong> Assembler images, voix-off et sous-titres automatiques en une vidéo finale professionnelle.
+                    </p>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <strong>📍 Important :</strong> CapCut peut sembler complexe au début, mais suivez les étapes une par une et tout ira bien !
+                    </div>
+                    
+                    <h3 style="color: #f5576c; margin: 25px 0 15px 0;">🎬 Marche à suivre détaillée</h3>
+                    
+                    <div class="instruction-list">
+                        <h4 style="color: #f5576c; margin: 20px 0 10px 0;">A. PRÉPARATION</h4>
+                        <ol>
+                            <li><strong>Aller sur</strong> <a href="https://www.capcut.com" target="_blank" style="color: #f5576c;">https://www.capcut.com</a> (version web)</li>
+                            <li><strong>Se connecter</strong> (compte Google fonctionne)</li>
+                            <li><strong>Créer</strong> un nouveau projet (bouton "+ New video")</li>
+                        </ol>
+                        
+                        <h4 style="color: #f5576c; margin: 20px 0 10px 0;">B. IMPORTER VOS FICHIERS</h4>
+                        <ol start="4">
+                            <li><strong>Cliquer</strong> sur "Upload" (coin supérieur gauche)</li>
+                            <li><strong>Importer</strong> :
+                                <ul>
+                                    <li>Vos 4 images DALL-E</li>
+                                    <li>Votre fichier audio MP3 (voix-off)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Attendre</strong> que tous les fichiers soient uploadés (quelques secondes)</li>
+                        </ol>
+                        
+                        <h4 style="color: #f5576c; margin: 20px 0 10px 0;">C. ASSEMBLER LA VIDÉO</h4>
+                        <ol start="7">
+                            <li><strong>AUDIO :</strong> Glisser votre MP3 sur la timeline (barre du bas)
+                                <ul>
+                                    <li>L'audio détermine la durée totale de votre vidéo</li>
+                                </ul>
+                            </li>
+                            <li><strong>IMAGES :</strong> Glisser vos 4 images EN SÉQUENCE sur la timeline
+                                <ul>
+                                    <li>Image 1 (accroche) : 0-20 secondes</li>
+                                    <li>Image 2 (point 1) : 20-45 secondes</li>
+                                    <li>Image 3 (point 2) : 45-70 secondes</li>
+                                    <li>Image 4 (conclusion) : 70-90 secondes</li>
+                                    <li>💡 Ajustez la durée de chaque image en tirant les bords</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h4 style="color: #f5576c; margin: 20px 0 10px 0;">D. SOUS-TITRES AUTOMATIQUES ⭐ (LA MAGIE !)</h4>
+                        <ol start="9">
+                            <li><strong>Cliquer</strong> sur "Captions" (menu gauche)</li>
+                            <li><strong>Sélectionner</strong> "Auto captions"</li>
+                            <li><strong>Langue :</strong> Choisir "Français"</li>
+                            <li><strong>Cliquer</strong> "Generate" → Attendre 30 secondes</li>
+                            <li><strong>RÉSULTAT :</strong> Sous-titres synchronisés automatiquement ! ✨</li>
+                            <li><strong>Personnaliser</strong> (optionnel) :
+                                <ul>
+                                    <li>Changer la police</li>
+                                    <li>Modifier la couleur de fond</li>
+                                    <li>Ajuster la taille</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h4 style="color: #f5576c; margin: 20px 0 10px 0;">E. TRANSITIONS (OPTIONNEL - 5 min)</h4>
+                        <ol start="15">
+                            <li><strong>Cliquer</strong> entre 2 images sur la timeline</li>
+                            <li><strong>Cliquer</strong> sur "Transition" (menu du haut)</li>
+                            <li><strong>Choisir</strong> "Dissolve" ou "Fade" (les plus professionnelles)</li>
+                            <li><strong>Durée :</strong> 0.5 secondes</li>
+                            <li><strong>Répéter</strong> pour les autres transitions</li>
+                        </ol>
+                        
+                        <h4 style="color: #f5576c; margin: 20px 0 10px 0;">F. TEXTE (OPTIONNEL - 5 min)</h4>
+                        <ol start="20">
+                            <li><strong>Ajouter un titre</strong> au début :
+                                <ul>
+                                    <li>Cliquer "Text" → "Default text"</li>
+                                    <li>Écrire votre titre</li>
+                                    <li>Placer sur la première image (3-5 secondes)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ajouter votre nom</strong> à la fin (optionnel)</li>
+                        </ol>
+                        
+                        <h4 style="color: #f5576c; margin: 20px 0 10px 0;">G. MUSIQUE DE FOND (OPTIONNEL - 3 min)</h4>
+                        <ol start="22">
+                            <li><strong>Cliquer</strong> "Audio" → "Music"</li>
+                            <li><strong>Chercher</strong> "upbeat" ou "corporate" ou "motivational"</li>
+                            <li><strong>Écouter</strong> et choisir une musique</li>
+                            <li><strong>Glisser</strong> sur la timeline en-dessous de votre voix</li>
+                            <li><strong>IMPORTANT :</strong> Baisser le volume de la musique à 20-30%
+                                <ul>
+                                    <li>Cliquer sur la piste musicale → Ajuster le volume</li>
+                                    <li>La voix doit être prioritaire !</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h4 style="color: #f5576c; margin: 20px 0 10px 0;">H. PRÉVISUALISER ET EXPORTER</h4>
+                        <ol start="27">
+                            <li><strong>Cliquer</strong> sur PLAY (barre d'espace) pour prévisualiser</li>
+                            <li><strong>Vérifier</strong> :
+                                <ul>
+                                    <li>Les sous-titres sont bien synchronisés</li>
+                                    <li>Les transitions sont fluides</li>
+                                    <li>Le son est bon (voix audible, musique en fond)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Si OK :</strong> Cliquer "Export" (coin supérieur droit)</li>
+                            <li><strong>Qualité :</strong> Choisir 1080p (Full HD)</li>
+                            <li><strong>Télécharger</strong> → Attendre 1-2 minutes</li>
+                            <li><strong>TERMINÉ !</strong> Votre vidéo est prête 🎉</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Astuces CapCut :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li><strong>Zoom timeline :</strong> Molette souris pour voir les détails</li>
+                            <li><strong>Annuler :</strong> Ctrl+Z (comme partout)</li>
+                            <li><strong>Lecture :</strong> Barre d'espace pour play/pause</li>
+                            <li><strong>Sauvegarde :</strong> CapCut sauvegarde automatiquement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ Si CapCut rame :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Fermez les autres onglets de votre navigateur</li>
+                            <li>Travaillez en qualité "Draft" puis exportez en 1080p à la fin</li>
+                            <li>Si vraiment trop lent : utilisez l'application desktop (plus rapide)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>✅ Résultat attendu :</strong>
+                        Vidéo MP4 de 60-90 secondes, avec voix-off, sous-titres automatiques, transitions fluides, prête à partager !
+                    </div>
+                </div>
+            </section>
+
+            <!-- Checklist -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">✅</span> Checklist : J'ai fini quand...</h2>
+                
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check1">
+                        <label for="check1">Mon script fait 200-250 mots (= 90 sec de narration)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check2">
+                        <label for="check2">J'ai 4 images DALL-E cohérentes visuellement</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check3">
+                        <label for="check3">Ma voix-off ElevenLabs est téléchargée (MP3)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check4">
+                        <label for="check4">Ma vidéo CapCut est montée avec les 4 images</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check5">
+                        <label for="check5">Les sous-titres sont générés automatiquement</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check6">
+                        <label for="check6">J'ai ajouté des transitions entre les images</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check7">
+                        <label for="check7">Ma vidéo est exportée en 1080p</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check8">
+                        <label for="check8">J'ai testé la vidéo sur mon ordinateur</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Astuces Pro -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">💡</span> Astuces Pro</h2>
+                
+                <div class="tip-box">
+                    <strong>Si votre script est trop long :</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Demandez à ChatGPT : "Réduis ce script à 200 mots maximum"</li>
+                        <li>Retirez les phrases secondaires</li>
+                        <li>Concentrez-vous sur l'essentiel</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Si ElevenLabs ne fonctionne pas :</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Alternative 1 : Utilisez votre propre voix (smartphone)</li>
+                        <li>Alternative 2 : Enregistrez dans CapCut directement</li>
+                        <li>Ça reste professionnel avec une bonne diction !</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Si CapCut est lent :</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Fermez tous les autres onglets</li>
+                        <li>Travaillez en mode "Draft" (brouillon)</li>
+                        <li>Exportez en haute qualité seulement à la fin</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Gain de temps :</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Les sous-titres auto sont LE plus important</li>
+                        <li>Transitions simples suffisent (juste "Dissolve")</li>
+                        <li>Pas besoin de musique si vous manquez de temps</li>
+                        <li>Un bon script + bons visuels + sous-titres = vidéo réussie !</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Cas d'usage -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">🎯</span> Cas d'Usage pour ce Parcours</h2>
+                
+                <div class="use-cases">
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">⚠️ Sécurité</h3>
+                        <p>Capsule sécurité en atelier (30-60 sec)</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">💪 Motivation</h3>
+                        <p>Vidéo de motivation avant stage (60-90 sec)</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">🎓 Orientation</h3>
+                        <p>Présentation métier pour 3èmes (90 sec)</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">📚 Révision</h3>
+                        <p>Révision express avant examen (60 sec)</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">🛠️ Tutoriel</h3>
+                        <p>Geste professionnel expliqué (90 sec)</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">🌱 Sensibilisation</h3>
+                        <p>Développement durable dans le métier (60 sec)</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>LP Mahina</strong> - Formation IA Niveau 3</p>
+            <p>M. VAIRAAROA Jimmy | jimmy.vairaaroa@ac-polynesie.pf</p>
+            <p style="margin-top: 15px; color: #999;">
+                Document créé pour la session du 22 Octobre 2025<br>
+                Besoin d'aide ? Levez la main, je circule dans la salle !
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" title="Retour en haut">↑</a>
+
+    <script>
+        // Fonction pour copier les prompts
+        function copyPrompt(button) {
+            const promptBox = button.parentElement;
+            const preElement = promptBox.querySelector('pre');
+            const text = preElement.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✅ Copié !';
+                button.style.background = '#4caf50';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#f5576c';
+                }, 2000);
+            }).catch(err => {
+                alert('Erreur lors de la copie. Veuillez copier manuellement.');
+            });
+        }
+
+        // Smooth scroll pour le bouton retour en haut
+        document.querySelector('.back-to-top').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Afficher/masquer le bouton selon la position du scroll
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Initialiser le bouton comme caché
+        document.querySelector('.back-to-top').style.display = 'none';
+    </script>
+</body>
+</html>

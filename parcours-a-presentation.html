@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcours A - Présentation Interactive | Formation IA Niveau 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .header .meta {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+        }
+        
+        .objective-box {
+            background: #f0f4ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .objective-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .objective-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .objective-box li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .objective-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .timeline {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            font-size: 1.1em;
+            min-width: 100px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding-left: 20px;
+        }
+        
+        .step {
+            background: #fff;
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-right: 15px;
+        }
+        
+        .step-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .prompt-box {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            position: relative;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+        
+        .prompt-label {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+        
+        .example-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .example-box strong {
+            color: #f57c00;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box strong {
+            color: #2e7d32;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box strong {
+            color: #e65100;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .checklist {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .checklist-item {
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .checklist-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .tool-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .tool-link:hover {
+            background: #5568d3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .use-case {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .footer {
+            background: #f5f5f5;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+        
+        .back-to-top:hover {
+            background: #5568d3;
+            transform: translateY(-5px);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .back-to-top {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 PARCOURS A</h1>
+            <div class="subtitle">Présentation Interactive Enrichie</div>
+            <div class="meta">
+                <strong>LP Mahina</strong> | M. VAIRAAROA Jimmy<br>
+                Formation IA Niveau 3 : Enrichir ses Contenus<br>
+                Mercredi 22 Octobre 2025
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            
+            <!-- Objectifs -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">🎯</span> Objectifs du Parcours</h2>
+                
+                <div class="objective-box">
+                    <h3>À la suite de ce parcours, vous serez capable de :</h3>
+                    <ul>
+                        <li>Créer une présentation professionnelle enrichie</li>
+                        <li>Générer des visuels uniques adaptés à votre discipline</li>
+                        <li>Transformer vos contenus en podcast automatique</li>
+                        <li>Produire un support complet pour vos JPO, réunions ou cours</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #fff; border: 2px solid #667eea; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <p><strong>📌 Pour qui ?</strong> JPO, présentation filière, cours magistral revisité, réunion pédagogique</p>
+                    <p><strong>🎁 Résultat final :</strong> Présentation Gamma 8-10 slides + visuels personnalisés + podcast bonus</p>
+                    <p><strong>🛠️ Outils utilisés :</strong> ChatGPT + DALL-E + Gamma.app + NotebookLM</p>
+                    <p><strong>⭐ Niveau :</strong> Facile (idéal pour débuter)</p>
+                    <p><strong>⏱️ Durée :</strong> 60 minutes</p>
+                </div>
+            </section>
+
+            <!-- Timeline -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">⏰</span> Timeline - 60 minutes</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">0-15 min</div>
+                        <div class="timeline-content">
+                            <strong>ÉTAPE 1 : ChatGPT</strong><br>
+                            Générer le contenu structuré
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">15-30 min</div>
+                        <div class="timeline-content">
+                            <strong>ÉTAPE 2 : DALL-E</strong><br>
+                            Créer 3-4 visuels personnalisés
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">30-50 min</div>
+                        <div class="timeline-content">
+                            <strong>ÉTAPE 3 : Gamma</strong><br>
+                            Assembler la présentation professionnelle
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">50-60 min</div>
+                        <div class="timeline-content">
+                            <strong>ÉTAPE 4 : NotebookLM (bonus)</strong><br>
+                            Transformer en podcast automatique
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Liens rapides -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">🔗</span> Liens Rapides vers les Outils</h2>
+                <div style="text-align: center;">
+                    <a href="https://chat.openai.com" target="_blank" class="tool-link">🤖 ChatGPT + DALL-E</a>
+                    <a href="https://gamma.app" target="_blank" class="tool-link">📊 Gamma.app</a>
+                    <a href="https://notebooklm.google.com" target="_blank" class="tool-link">🎙️ NotebookLM</a>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 1 -->
+            <section class="section">
+                <div class="step">
+                    <h2 class="step-title">
+                        <span class="step-number">1</span>
+                        ChatGPT - Générer le contenu (15 min)
+                    </h2>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        <strong>Objectif :</strong> Créer un document structuré de 600-800 mots qui servira de base à votre présentation.
+                    </p>
+                    
+                    <h3 style="color: #667eea; margin: 25px 0 15px 0;">📝 Prompt à utiliser</h3>
+                    
+                    <div class="prompt-label">PROMPT GÉNÉRIQUE</div>
+                    <div class="prompt-box">
+                        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                        <pre style="white-space: pre-wrap; margin: 0;">Tu es expert en pédagogie pour lycée professionnel en [VOTRE DISCIPLINE].
+
+Crée-moi un document structuré pour présenter [VOTRE SUJET] incluant :
+
+1. Introduction accrocheuse (3 lignes)
+2. [3-5 POINTS CLÉS selon votre sujet]
+3. Exemples concrets adaptés au LP
+4. Conclusion avec appel à l'action
+
+Format : structure claire avec titres H1, H2, H3
+Ton : professionnel mais accessible
+Longueur : 600-800 mots</pre>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ PERSONNALISEZ :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Remplacez <code>[VOTRE DISCIPLINE]</code> : maths, français, mécanique, hôtellerie, commerce...</li>
+                            <li>Remplacez <code>[VOTRE SUJET]</code> : présentation filière, JPO, cours sur X, sensibilisation Y...</li>
+                            <li>Adaptez les points clés selon votre besoin spécifique</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="color: #667eea; margin: 30px 0 15px 0;">💡 Exemples concrets</h3>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 1 : Mécanique Auto (JPO)</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Tu es expert en pédagogie pour lycée professionnel en MÉCANIQUE AUTO.
+
+Crée-moi un document structuré pour présenter LA FILIÈRE MAINTENANCE VÉHICULES lors des JPO incluant :
+
+1. Introduction accrocheuse (3 lignes)
+2. Les 4 métiers principaux après le bac
+3. Compétences développées pendant la formation
+4. Débouchés locaux en Polynésie
+5. Conclusion avec appel à l'action
+
+Format : structure claire avec titres H1, H2, H3
+Ton : professionnel mais accessible
+Longueur : 600-800 mots</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 2 : Hôtellerie-Restauration (Présentation filière)</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Tu es expert en pédagogie pour lycée professionnel en HÔTELLERIE-RESTAURATION.
+
+Crée-moi un document structuré pour présenter LES DÉBOUCHÉS EN HÔTELLERIE EN POLYNÉSIE incluant :
+
+1. Introduction accrocheuse (3 lignes)
+2. Les 5 secteurs qui recrutent localement
+3. Compétences recherchées par les employeurs
+4. Salaires et évolution de carrière
+5. Témoignages fictifs de professionnels
+6. Conclusion avec appel à l'action
+
+Format : structure claire avec titres H1, H2, H3
+Ton : professionnel mais accessible
+Longueur : 600-800 mots</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 3 : Commerce (Cours)</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Tu es expert en pédagogie pour lycée professionnel en COMMERCE.
+
+Crée-moi un document structuré pour un cours sur LES TECHNIQUES DE VENTE incluant :
+
+1. Introduction accrocheuse (3 lignes)
+2. Les 4 étapes de la vente (AIDA ou autre)
+3. Techniques de questionnement client
+4. Traitement des objections
+5. Exemples concrets en magasin polynésien
+6. Conclusion avec appel à l'action
+
+Format : structure claire avec titres H1, H2, H3
+Ton : pédagogique et motivant
+Longueur : 600-800 mots</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>✅ Résultat attendu :</strong>
+                        Un document de 600-800 mots, bien structuré avec des titres clairs, prêt à utiliser pour votre présentation.
+                    </div>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 2 -->
+            <section class="section">
+                <div class="step">
+                    <h2 class="step-title">
+                        <span class="step-number">2</span>
+                        DALL-E - Créer les visuels (15 min)
+                    </h2>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        <strong>Objectif :</strong> Générer 3-4 images uniques et professionnelles pour illustrer votre présentation.
+                    </p>
+                    
+                    <h3 style="color: #667eea; margin: 25px 0 15px 0;">🎨 Prompt à utiliser</h3>
+                    
+                    <p style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <strong>📍 Important :</strong> Utilisez le MÊME CHAT que l'étape 1. Continuez simplement la conversation.
+                    </p>
+                    
+                    <div class="prompt-label">PROMPT GÉNÉRIQUE IMAGES</div>
+                    <div class="prompt-box">
+                        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                        <pre style="white-space: pre-wrap; margin: 0;">Génère 3 images pour illustrer ce document :
+
+1. Image de couverture : [DESCRIPTION VISUELLE DE VOTRE THÈME]
+   Style : moderne, professionnel, lumineux
+
+2. Illustration concept clé : [VOTRE CONCEPT PRINCIPAL]
+   Style : infographie simple et colorée
+
+3. Exemple concret : [SCÈNE RÉELLE DE VOTRE DOMAINE]
+   Style : réaliste, contexte polynésien si possible</pre>
+                    </div>
+                    
+                    <h3 style="color: #667eea; margin: 30px 0 15px 0;">💡 Exemples concrets</h3>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 1 : Mécanique Auto</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Génère 3 images pour illustrer ce document :
+
+1. Image de couverture : Atelier de mécanique automobile moderne dans un lycée professionnel, avec des élèves en bleu de travail qui travaillent sur des véhicules récents
+   Style : moderne, professionnel, lumineux
+
+2. Illustration concept clé : Schéma simple montrant les 4 grands domaines de compétences en maintenance véhicules (mécanique, électricité, carrosserie, diagnostic)
+   Style : infographie simple et colorée
+
+3. Exemple concret : Jeune mécanicien polynésien souriant qui fait un diagnostic électronique sur une voiture dans un garage local
+   Style : réaliste, contexte polynésien</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 2 : Hôtellerie-Restauration</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Génère 3 images pour illustrer ce document :
+
+1. Image de couverture : Cuisine professionnelle de lycée hôtelier en Polynésie, avec des élèves en toque qui préparent des plats, ambiance dynamique
+   Style : moderne, professionnel, lumineux
+
+2. Illustration concept clé : Pyramide des métiers de l'hôtellerie-restauration avec 5 niveaux (de commis à chef)
+   Style : infographie simple et colorée
+
+3. Exemple concret : Service en salle dans un restaurant haut de gamme polynésien, serveur professionnel avec vue sur lagon
+   Style : réaliste, contexte polynésien</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <strong>Exemple 3 : Commerce</strong>
+                        <div class="prompt-box" style="margin-top: 10px;">
+                            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copier</button>
+                            <pre style="white-space: pre-wrap; margin: 0;">Génère 3 images pour illustrer ce document :
+
+1. Image de couverture : Boutique moderne en Polynésie avec vendeur qui accueille un client, ambiance chaleureuse et professionnelle
+   Style : moderne, professionnel, lumineux
+
+2. Illustration concept clé : Les 4 étapes de la méthode AIDA (Attention, Intérêt, Désir, Action) sous forme de funnel coloré
+   Style : infographie simple et colorée
+
+3. Exemple concret : Jeune vendeuse polynésienne souriante qui conseille une cliente dans un magasin local, interaction authentique
+   Style : réaliste, contexte polynésien</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Astuces :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Téléchargez IMMÉDIATEMENT les 3 images après génération (clic droit > Enregistrer)</li>
+                            <li>Si une image ne vous plaît pas, redemandez : "Peux-tu régénérer l'image 2 avec plus de détails ?"</li>
+                            <li>Ajoutez "style professionnel, moderne, réaliste" si le résultat est trop abstrait</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ Si DALL-E ne génère pas ce que vous voulez :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Soyez plus descriptif dans vos demandes</li>
+                            <li>Essayez 2-3 fois, gardez la meilleure version</li>
+                            <li>Vous pouvez toujours ajuster dans Gamma ensuite</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>✅ Résultat attendu :</strong>
+                        3 images haute qualité téléchargées sur votre ordinateur, prêtes à être intégrées dans Gamma.
+                    </div>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 3 -->
+            <section class="section">
+                <div class="step">
+                    <h2 class="step-title">
+                        <span class="step-number">3</span>
+                        Gamma - Assembler la présentation (20 min)
+                    </h2>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        <strong>Objectif :</strong> Transformer votre texte en présentation professionnelle de 8-10 slides avec vos visuels.
+                    </p>
+                    
+                    <h3 style="color: #667eea; margin: 25px 0 15px 0;">📊 Marche à suivre</h3>
+                    
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 5px solid #667eea;">
+                        <ol style="padding-left: 20px; line-height: 2;">
+                            <li><strong>Aller sur</strong> <a href="https://gamma.app" target="_blank" style="color: #667eea;">https://gamma.app</a> (connexion Google)</li>
+                            <li><strong>Cliquer</strong> sur "Paste to create" ou "Coller pour créer"</li>
+                            <li><strong>Copier-coller</strong> tout le texte généré par ChatGPT (étape 1)</li>
+                            <li><strong>Choisir</strong> un template (prenez celui qui vous plaît visuellement)</li>
+                            <li><strong>Attendre</strong> 30 secondes → Présentation automatiquement générée ✨</li>
+                            <li><strong>Ajouter vos images DALL-E :</strong>
+                                <ul style="margin-top: 10px;">
+                                    <li>Cliquer sur une slide</li>
+                                    <li>Cliquer sur "Replace image" ou "Add image"</li>
+                                    <li>Upload vos 3 images</li>
+                                    <li>Répartir sur 3 slides différentes</li>
+                                </ul>
+                            </li>
+                            <li><strong>Personnaliser</strong> (optionnel) :
+                                <ul style="margin-top: 10px;">
+                                    <li>Changer les couleurs si besoin</li>
+                                    <li>Ajuster les titres</li>
+                                    <li>Ajouter une slide de conclusion</li>
+                                </ul>
+                            </li>
+                            <li><strong>Mode Présentation</strong> pour vérifier le résultat final</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tip-box" style="margin-top: 25px;">
+                        <strong>💡 Astuces Gamma :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li><strong>Templates :</strong> Le premier qui vous plaît est souvent le meilleur. Pas besoin de passer 10 minutes à comparer.</li>
+                            <li><strong>Images :</strong> Glisser-déposer fonctionne aussi bien que "Replace image"</li>
+                            <li><strong>Modification :</strong> Cliquez sur n'importe quel texte pour l'éditer directement</li>
+                            <li><strong>Partage :</strong> Gamma génère automatiquement un lien partageable</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ Si Gamma ne vous plaît pas :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Essayez un autre template (bouton "Change theme")</li>
+                            <li>Ou modifiez manuellement les slides qui ne vous conviennent pas</li>
+                            <li>Gamma permet une personnalisation complète</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>✅ Résultat attendu :</strong>
+                        Présentation de 8-10 slides, visuellement attractive, avec vos 3 images intégrées, prête à présenter.
+                    </div>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 4 -->
+            <section class="section">
+                <div class="step">
+                    <h2 class="step-title">
+                        <span class="step-number">4</span>
+                        NotebookLM - Podcast bonus (10 min)
+                    </h2>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        <strong>Objectif :</strong> Transformer votre contenu en podcast de 5-8 minutes avec 2 voix IA qui discutent.
+                    </p>
+                    
+                    <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <strong>🌟 C'est l'outil STAR de la formation !</strong><br>
+                        Le résultat va vous impressionner : 2 voix IA naturelles vont discuter de votre contenu comme dans une émission radio.
+                    </div>
+                    
+                    <h3 style="color: #667eea; margin: 25px 0 15px 0;">🎙️ Marche à suivre</h3>
+                    
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 5px solid #667eea;">
+                        <ol style="padding-left: 20px; line-height: 2;">
+                            <li><strong>Aller sur</strong> <a href="https://notebooklm.google.com" target="_blank" style="color: #667eea;">https://notebooklm.google.com</a></li>
+                            <li><strong>Créer</strong> un nouveau notebook (bouton "+ New")</li>
+                            <li><strong>Copier</strong> votre texte ChatGPT dans un Google Doc
+                                <ul style="margin-top: 10px;">
+                                    <li>Ou copier-coller directement dans NotebookLM</li>
+                                </ul>
+                            </li>
+                            <li><strong>Uploader</strong> ce Google Doc dans NotebookLM
+                                <ul style="margin-top: 10px;">
+                                    <li>Cliquer sur "+" → "Google Doc" → Coller le lien</li>
+                                    <li>Ou cliquer sur "+" → "Paste text" → Coller le texte directement</li>
+                                </ul>
+                            </li>
+                            <li><strong>Cliquer</strong> sur "Audio Overview" (icône 🎙️) en haut</li>
+                            <li><strong>Cliquer</strong> sur "Generate"</li>
+                            <li><strong>Attendre</strong> 3-5 minutes (ne fermez pas la page !)</li>
+                            <li><strong>Le podcast est généré !</strong> Cliquez sur PLAY 🎧</li>
+                            <li><strong>Télécharger</strong> : Cliquer sur "..." (3 points) → "Download"</li>
+                        </ol>
+                    </div>
+                    
+                    <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #4caf50; margin-top: 25px;">
+                        <strong>🎯 Ce que vous allez entendre :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>2 voix IA (une masculine, une féminine) très naturelles</li>
+                            <li>Elles discutent de votre contenu comme dans une émission radio</li>
+                            <li>Elles reformulent, ajoutent des transitions, posent des questions</li>
+                            <li>Durée : 5-8 minutes environ</li>
+                            <li>Qualité audio professionnelle</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box" style="margin-top: 25px;">
+                        <strong>💡 Utilisations possibles de votre podcast :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li><strong>Pour vos élèves :</strong> Envoyer via Pronote, écoute en voiture ou pendant le sport</li>
+                            <li><strong>Pour vous :</strong> Réviser le contenu en préparant vos cours</li>
+                            <li><strong>Pour les JPO :</strong> Diffuser en fond sonore pendant les visites</li>
+                            <li><strong>Accessibilité :</strong> Parfait pour élèves DYS ou malvoyants</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ Si le podcast est trop court :</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Votre texte source était probablement trop court (moins de 400 mots)</li>
+                            <li>Solution : Demandez à ChatGPT de développer davantage</li>
+                            <li>Plus vous donnez de matière à NotebookLM, plus le podcast sera riche</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>✅ Résultat attendu :</strong>
+                        Podcast MP3 de 5-8 minutes, format radio naturel, prêt à partager avec vos élèves ou collègues.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Checklist -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">✅</span> Checklist : J'ai fini quand...</h2>
+                
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check1">
+                        <label for="check1">Mon texte ChatGPT fait 600-800 mots et est bien structuré</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check2">
+                        <label for="check2">J'ai 3 images DALL-E téléchargées sur mon ordinateur</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check3">
+                        <label for="check3">Ma présentation Gamma contient 8-10 slides</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check4">
+                        <label for="check4">Mes 3 images sont intégrées dans la présentation</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check5">
+                        <label for="check5">Mon podcast NotebookLM est généré et téléchargé</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check6">
+                        <label for="check6">J'ai testé le mode présentation dans Gamma</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check7">
+                        <label for="check7">Je sais comment partager ma présentation (lien Gamma)</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Astuces Pro -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">💡</span> Astuces Pro</h2>
+                
+                <div class="tip-box">
+                    <strong>Si vous bloquez sur ChatGPT :</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Soyez plus précis dans votre demande</li>
+                        <li>Donnez un exemple concret de ce que vous voulez</li>
+                        <li>Relancez : "Peux-tu rendre ça plus concret pour des élèves de LP ?"</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Si DALL-E ne génère pas ce que vous voulez :</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Reformulez en étant plus descriptif</li>
+                        <li>Ajoutez "style professionnel" ou "style moderne"</li>
+                        <li>Essayez 2-3 fois, gardez la meilleure image</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Si Gamma ne vous plaît pas :</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Essayez un autre template</li>
+                        <li>Ou utilisez votre présentation comme base et modifiez manuellement</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Gain de temps :</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Préparez votre prompt ChatGPT AVANT la session</li>
+                        <li>Ayez votre sujet clair en tête</li>
+                        <li>Téléchargez les images DALL-E immédiatement après génération</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Cas d'usage -->
+            <section class="section">
+                <h2 class="section-title"><span class="icon">🎯</span> Cas d'Usage pour ce Parcours</h2>
+                
+                <div class="use-cases">
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">📅 JPO</h3>
+                        <p>Présentation filière attractive pour futures élèves</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">🎓 Cours</h3>
+                        <p>Support enrichi avec visuels pour cours magistral</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">👥 Réunion</h3>
+                        <p>Présentation pro pour réunion pédagogique</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">🎯 Orientation</h3>
+                        <p>Pitch de filière pour élèves de 3ème</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">📚 Révision</h3>
+                        <p>Capsule de révision avant examen</p>
+                    </div>
+                    <div class="use-case">
+                        <h3 style="margin-bottom: 10px;">⚠️ Sensibilisation</h3>
+                        <p>Support pour sensibilisation thématique</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>LP Mahina</strong> - Formation IA Niveau 3</p>
+            <p>M. VAIRAAROA Jimmy | jimmy.vairaaroa@ac-polynesie.pf</p>
+            <p style="margin-top: 15px; color: #999;">
+                Document créé pour la session du 22 Octobre 2025<br>
+                Besoin d'aide ? Levez la main, je circule dans la salle !
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" title="Retour en haut">↑</a>
+
+    <script>
+        // Fonction pour copier les prompts
+        function copyPrompt(button) {
+            const promptBox = button.parentElement;
+            const preElement = promptBox.querySelector('pre');
+            const text = preElement.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✅ Copié !';
+                button.style.background = '#4caf50';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#667eea';
+                }, 2000);
+            }).catch(err => {
+                alert('Erreur lors de la copie. Veuillez copier manuellement.');
+            });
+        }
+
+        // Smooth scroll pour le bouton retour en haut
+        document.querySelector('.back-to-top').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Afficher/masquer le bouton selon la position du scroll
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Initialiser le bouton comme caché
+        document.querySelector('.back-to-top').style.display = 'none';
+    </script>
+</body>
+</html>

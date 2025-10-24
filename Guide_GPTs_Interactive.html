@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Pratique: Créer un GPT - LP Mahina</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-btn {
+            background: white;
+            border: 2px solid #f5576c;
+            color: #f5576c;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .nav-btn:hover {
+            background: #f5576c;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #f5576c;
+            padding-left: 20px;
+        }
+        
+        .section h2 {
+            color: #f5576c;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .section h3 {
+            color: #f093fb;
+            font-size: 1.5em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #f093fb;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #f093fb;
+            color: white;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .prompt-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            position: relative;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f5576c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #f093fb;
+            transform: scale(1.05);
+        }
+        
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .copy-btn.copied {
+            background: #27ae60;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .alert-danger {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .checklist {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .checklist-item {
+            padding: 10px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .checklist-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            margin: 10px 5px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
+        }
+        
+        .duration {
+            display: inline-block;
+            background: #ffc107;
+            color: #2c3e50;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .tips {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .tips h4 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .example-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .example-card:hover {
+            border-color: #f5576c;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .example-card h4 {
+            color: #f093fb;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .nav {
+                flex-direction: column;
+            }
+        }
+        
+        .progress-bar {
+            background: #e9ecef;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        
+        .field-box {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .field-box h4 {
+            color: #f5576c;
+            margin-bottom: 10px;
+        }
+        
+        code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #f5576c;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Guide Pratique: Créer un GPT</h1>
+            <p>Parcours B - Version Payante</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Formation IA Niveau 4 - LP Mahina | M. VAIRAAROA Jimmy</p>
+        </div>
+        
+        <div class="content">
+            <!-- Navigation -->
+            <div class="nav">
+                <a href="#intro" class="nav-btn">📋 Introduction</a>
+                <a href="#etape1" class="nav-btn">1️⃣ Conception</a>
+                <a href="#etape2" class="nav-btn">2️⃣ Création</a>
+                <a href="#etape3" class="nav-btn">3️⃣ Test</a>
+                <a href="#etape4" class="nav-btn">4️⃣ Partage</a>
+                <a href="#etape5" class="nav-btn">5️⃣ Documentation</a>
+            </div>
+            
+            <!-- Barre de progression -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            
+            <!-- Introduction -->
+            <section id="intro" class="section">
+                <h2>🎯 Vue d'ensemble</h2>
+                
+                <div class="alert alert-danger">
+                    <strong>⚠️ PRÉREQUIS :</strong> ChatGPT Plus ou Pro (version payante) obligatoire pour créer des GPTs.
+                </div>
+                
+                <h3>Les 5 étapes (40 minutes)</h3>
+                <div class="examples">
+                    <div class="example-card">
+                        <h4>Étape 1</h4>
+                        <p><strong>⏱ 5 min</strong></p>
+                        <p>Conception du GPT</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>Étape 2</h4>
+                        <p><strong>⏱ 15 min</strong></p>
+                        <p>Création technique</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>Étape 3</h4>
+                        <p><strong>⏱ 10 min</strong></p>
+                        <p>Test & Ajustement</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>Étape 4</h4>
+                        <p><strong>⏱ 5 min</strong></p>
+                        <p>Configuration partage</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>Étape 5</h4>
+                        <p><strong>⏱ 5 min</strong></p>
+                        <p>Documentation</p>
+                    </div>
+                </div>
+                
+                <div class="tips">
+                    <h4>💡 Qu'est-ce qu'un GPT ?</h4>
+                    <p>Un <strong>GPT (Custom GPT)</strong> est un assistant IA personnalisé que VOUS créez et configurez. Contrairement à un Project :</p>
+                    <ul>
+                        <li>✅ Il peut être <strong>partagé</strong> via un lien</li>
+                        <li>✅ Interface personnalisée avec "conversation starters"</li>
+                        <li>✅ Fonctionne comme une "app" indépendante</li>
+                        <li>✅ Utilisable par vos collègues et élèves</li>
+                    </ul>
+                </div>
+                
+                <a href="https://chat.openai.com" target="_blank" class="btn-primary">🚀 Ouvrir ChatGPT</a>
+            </section>
+            
+            <!-- Étape 1: Conception -->
+            <section id="etape1" class="section">
+                <h2>1️⃣ Étape 1: Conception</h2>
+                <span class="duration">⏱ 5 minutes</span>
+                
+                <div class="alert alert-info">
+                    <strong>🎯 Objectif :</strong> Définir clairement ce que fera votre GPT AVANT de le créer
+                </div>
+                
+                <h3>Les 5 Questions Essentielles</h3>
+                
+                <div class="field-box">
+                    <h4>Question 1: Objectif principal</h4>
+                    <p><strong>Quel est l'objectif principal de mon GPT ?</strong></p>
+                    <p style="margin-top: 10px;">Exemples :</p>
+                    <ul>
+                        <li>"Créer des activités pratiques pour mes cours de mécanique"</li>
+                        <li>"Générer des fiches d'évaluation avec barèmes"</li>
+                        <li>"Aider à la différenciation pédagogique"</li>
+                    </ul>
+                </div>
+                
+                <div class="field-box">
+                    <h4>Question 2: Public cible</h4>
+                    <p><strong>Qui va utiliser mon GPT ?</strong></p>
+                    <ul>
+                        <li>☐ Moi uniquement (préparation perso)</li>
+                        <li>☐ Mes collègues de discipline</li>
+                        <li>☐ Mes élèves (autonomie encadrée)</li>
+                        <li>☐ Tout le monde</li>
+                    </ul>
+                </div>
+                
+                <div class="field-box">
+                    <h4>Question 3: Documents nécessaires</h4>
+                    <p><strong>Quels fichiers uploader ? (5-10 fichiers)</strong></p>
+                    <div class="examples" style="margin-top: 10px;">
+                        <div class="example-card">
+                            <h4>🔧 Mécanique</h4>
+                            <p style="font-size: 0.9em;">Manuels techniques, schémas, fiches diagnostic</p>
+                        </div>
+                        <div class="example-card">
+                            <h4>🍽 Hôtellerie</h4>
+                            <p style="font-size: 0.9em;">Fiches recettes, protocoles HACCP, cartes</p>
+                        </div>
+                        <div class="example-card">
+                            <h4>💼 Commerce</h4>
+                            <p style="font-size: 0.9em;">Fiches produits, argumentaires, études de cas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="field-box">
+                    <h4>Question 4: Ton et format</h4>
+                    <p><strong>Comment doit répondre le GPT ?</strong></p>
+                    <ul>
+                        <li><strong>Ton :</strong> Professionnel mais accessible (recommandé)</li>
+                        <li><strong>Format :</strong> Étapes numérotées (recommandé)</li>
+                    </ul>
+                </div>
+                
+                <div class="field-box">
+                    <h4>Question 5: Actions spécifiques</h4>
+                    <p><strong>Que doit savoir faire mon GPT ? (3-5 actions)</strong></p>
+                    <ul>
+                        <li>Créer des fiches d'activité complètes</li>
+                        <li>Générer des grilles d'évaluation</li>
+                        <li>Proposer 3 niveaux de difficulté</li>
+                        <li>Adapter le vocabulaire au niveau élève</li>
+                    </ul>
+                </div>
+                
+                <div class="checklist">
+                    <h3>✅ Vérification Étape 1</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>J'ai répondu aux 5 questions</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>J'ai une vision claire de mon GPT</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Je sais quels fichiers uploader</label>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Étape 2: Création technique -->
+            <section id="etape2" class="section">
+                <h2>2️⃣ Étape 2: Création technique</h2>
+                <span class="duration">⏱ 15 minutes</span>
+                
+                <h3>A. Accéder à l'interface (1 min)</h3>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Navigation dans ChatGPT</strong>
+                    <ol style="margin-top: 10px;">
+                        <li>Ouvrir <a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
+                        <li>Cliquer sur votre <strong>profil</strong> (en haut à gauche)</li>
+                        <li>Sélectionner <strong>"Explore GPTs"</strong></li>
+                        <li>Cliquer sur <strong>"+ Create"</strong></li>
+                        <li>Sélectionner l'onglet <strong>"Configure"</strong> (plus rapide)</li>
+                    </ol>
+                </div>
+                
+                <h3>B. Remplir les champs (14 min)</h3>
+                
+                <!-- Champ NAME -->
+                <div class="field-box">
+                    <h4>📝 Champ: NAME (Nom)</h4>
+                    <p><strong>Format recommandé :</strong></p>
+                    <div class="prompt-box" id="nom-template">[Discipline] Coach Pro - LP Mahina<button class="copy-btn" onclick="copyPrompt('nom-template', this)">📋 Copier</button></div>
+                    
+                    <p style="margin-top: 10px;"><strong>Exemples :</strong></p>
+                    <ul>
+                        <li>"Mécanique Coach Pro - LP Mahina"</li>
+                        <li>"Cuisine & Service Coach - LP Mahina"</li>
+                        <li>"Vente Conseil Coach - LP Mahina"</li>
+                    </ul>
+                </div>
+                
+                <!-- Champ DESCRIPTION -->
+                <div class="field-box">
+                    <h4>📄 Champ: DESCRIPTION</h4>
+                    <div class="prompt-box" id="description-template">Assistant spécialisé en [DISCIPLINE] pour enseignants et élèves 
+de lycée professionnel. 
+
+Aide à la préparation de cours, création d'exercices et accompagnement 
+pédagogique adapté au contexte LP.
+
+Connaît les référentiels CAP/Bac Pro et s'adapte au contexte polynésien.<button class="copy-btn" onclick="copyPrompt('description-template', this)">📋 Copier</button></div>
+                    
+                    <div class="alert">
+                        <strong>💡 N'oubliez pas :</strong> Remplacez <code>[DISCIPLINE]</code> par votre matière
+                    </div>
+                </div>
+                
+                <!-- Champ INSTRUCTIONS -->
+                <div class="field-box">
+                    <h4>📋 Champ: INSTRUCTIONS (le plus important !)</h4>
+                    <p style="margin-bottom: 10px;">Copiez ce template COMPLET puis personnalisez :</p>
+                    
+                    <div class="prompt-box" id="instructions-template"># IDENTITÉ
+Tu es "[NOM DE VOTRE GPT]", un assistant pédagogique expert en [DISCIPLINE] 
+pour le lycée professionnel.
+
+Tu accompagnes les enseignants du Lycée Professionnel Mahina en Polynésie 
+française dans la préparation de leurs cours et activités.
+
+# MISSION PRINCIPALE
+Aider les enseignants à :
+- Créer des activités pratiques et théoriques adaptées à [DISCIPLINE]
+- Générer des supports pédagogiques professionnels
+- Différencier les apprentissages selon les profils (CAP, Bac Pro)
+- Adapter les contenus au contexte polynésien
+
+# TON ET STYLE
+- Professionnel mais chaleureux et accessible
+- Bienveillant et encourageant
+- Pédagogique : tu expliques le "pourquoi"
+- Tu utilises le tutoiement naturel de Polynésie
+
+# FORMAT DE RÉPONSE STANDARD
+Quand tu crées une activité ou un support, structure ainsi :
+
+**🎯 Objectif pédagogique**
+[En 1-2 phrases]
+
+**👥 Public cible**
+[CAP/Bac Pro + année]
+
+**⏱ Durée estimée**
+[Temps réaliste]
+
+**📋 Matériel nécessaire**
+[Liste précise]
+
+**📝 Déroulé détaillé**
+[Étapes numérotées]
+
+**✅ Critères d'évaluation**
+[3-5 critères observables]
+
+# CONTRAINTES ET RÈGLES
+1. **Sécurité d'abord** : Toujours mentionner les EPI
+2. **Faisabilité** : Équipement LP standard uniquement
+3. **Temps réaliste** : Ne sous-estime pas la durée
+4. **Vocabulaire adapté** : Explique les termes techniques
+5. **Sources** : Cite TOUJOURS les documents fournis
+
+# SIGNATURE
+Tu conclus tes réponses par :
+"Bon courage pour ta préparation ! N'hésite pas si tu veux ajuster. 🌺"<button class="copy-btn" onclick="copyPrompt('instructions-template', this)">📋 Copier</button></div>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ PERSONNALISATION OBLIGATOIRE</h4>
+                        <ul>
+                            <li>Remplacez <code>[NOM DE VOTRE GPT]</code></li>
+                            <li>Remplacez <code>[DISCIPLINE]</code> (apparaît plusieurs fois)</li>
+                            <li>Ajoutez des spécificités de votre discipline</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Champ CONVERSATION STARTERS -->
+                <div class="field-box">
+                    <h4>💬 Champ: CONVERSATION STARTERS (4 questions)</h4>
+                    <p style="margin-bottom: 10px;">Questions pré-écrites qui apparaîtront à l'ouverture du GPT :</p>
+                    
+                    <div class="examples">
+                        <div class="example-card">
+                            <h4>🔧 Mécanique</h4>
+                            <div class="prompt-box" id="starters-meca" style="font-size: 0.8em;">1. "Crée un TP diagnostic panne électrique pour CAP 1ère année"
+2. "Génère une fiche technique changement de plaquettes"
+3. "Propose des exercices progressifs sur la mécanique moteur"
+4. "Crée une grille d'évaluation pratique avec critères"<button class="copy-btn" onclick="copyPrompt('starters-meca', this)">📋 Copier</button></div>
+                        </div>
+                        
+                        <div class="example-card">
+                            <h4>🍽 Hôtellerie</h4>
+                            <div class="prompt-box" id="starters-hotel" style="font-size: 0.8em;">1. "Crée un scénario de service restaurant pour un événement"
+2. "Propose un menu équilibré avec protocoles HACCP"
+3. "Génère des cas pratiques gestion réclamation client"
+4. "Aide-moi à préparer un cours sur le dressage"<button class="copy-btn" onclick="copyPrompt('starters-hotel', this)">📋 Copier</button></div>
+                        </div>
+                        
+                        <div class="example-card">
+                            <h4>💼 Commerce</h4>
+                            <div class="prompt-box" id="starters-commerce" style="font-size: 0.8em;">1. "Simule un entretien de vente produit complexe"
+2. "Crée des fiches techniques produits attractives"
+3. "Propose des exercices de négociation commerciale"
+4. "Génère des études de cas relation client"<button class="copy-btn" onclick="copyPrompt('starters-commerce', this)">📋 Copier</button></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Champ KNOWLEDGE -->
+                <div class="field-box">
+                    <h4>📁 Champ: KNOWLEDGE (Upload fichiers)</h4>
+                    <ol>
+                        <li>Section <strong>"Knowledge"</strong> → Cliquez <strong>"Upload files"</strong></li>
+                        <li>Sélectionnez 5-10 fichiers essentiels</li>
+                        <li>Attendez le chargement complet</li>
+                    </ol>
+                    <div class="alert" style="margin-top: 10px;">
+                        <strong>💡 Pas de limite</strong> en version payante, mais restez raisonnable (10 fichiers max recommandé)
+                    </div>
+                </div>
+                
+                <!-- Champ CAPABILITIES -->
+                <div class="field-box">
+                    <h4>⚙️ Champ: CAPABILITIES</h4>
+                    <p>Cochez ces 2 options :</p>
+                    <ul>
+                        <li>✅ <strong>Web Browsing</strong> (recherche web pour infos actualisées)</li>
+                        <li>✅ <strong>DALL-E Image Generation</strong> (création de visuels)</li>
+                        <li>⬜ Code Interpreter (inutile pour LP, laissez décoché)</li>
+                    </ul>
+                </div>
+                
+                <div class="checklist">
+                    <h3>✅ Vérification Étape 2</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Tous les champs sont remplis</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Au moins 5 fichiers uploadés</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Web Browsing et DALL-E cochés</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>J'ai cliqué sur "Save"</label>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Étape 3: Test -->
+            <section id="etape3" class="section">
+                <h2>3️⃣ Étape 3: Test & Ajustement</h2>
+                <span class="duration">⏱ 10 minutes</span>
+                
+                <div class="alert alert-info">
+                    <strong>🎯 Objectif :</strong> Vérifier que votre GPT fonctionne comme prévu
+                </div>
+                
+                <h3>Prompts de test</h3>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Test: Création d'activité</strong>
+                    <div class="prompt-box" id="test1" style="margin-top: 10px;">Crée un TP de 2h sur [sujet de votre choix] pour des CAP 1ère année.
+Contexte : atelier LP Mahina avec équipement standard.
+
+Inclus :
+- Objectifs pédagogiques
+- Matériel et EPI nécessaires
+- Déroulé en étapes numérotées
+- Critères d'évaluation<button class="copy-btn" onclick="copyPrompt('test1', this)">📋 Copier</button></div>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Test: Génération d'évaluation</strong>
+                    <div class="prompt-box" id="test2" style="margin-top: 10px;">Génère une grille d'évaluation pratique pour [compétence] 
+avec 5 critères observables et barème sur 20 points.
+
+Public : Bac Pro en situation d'examen.<button class="copy-btn" onclick="copyPrompt('test2', this)">📋 Copier</button></div>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Test: Utilisation des documents</strong>
+                    <div class="prompt-box" id="test3" style="margin-top: 10px;">En te basant sur [nom d'un document uploadé], 
+explique-moi [notion ou procédure].
+
+Cite explicitement les passages du document que tu utilises.<button class="copy-btn" onclick="copyPrompt('test3', this)">📋 Copier</button></div>
+                </div>
+                
+                <div class="tips">
+                    <h4>✅ Ce que vous devez observer</h4>
+                    <ul>
+                        <li>Le format est respecté</li>
+                        <li>Le vocabulaire est adapté</li>
+                        <li>Les EPI sont mentionnés (si pertinent)</li>
+                        <li>Le GPT cite vos documents</li>
+                    </ul>
+                </div>
+                
+                <h3>Ajustements si nécessaire</h3>
+                
+                <div class="warning-box">
+                    <h4>⚠️ Problème: Le GPT ne cite pas mes documents</h4>
+                    <p><strong>Solution :</strong> Ajoutez dans les instructions :</p>
+                    <div class="prompt-box" id="fix1" style="margin-top: 10px;">IMPÉRATIF :
+→ Tu DOIS TOUJOURS citer les documents uploadés
+→ Format : "En me basant sur [nom du document]..."<button class="copy-btn" onclick="copyPrompt('fix1', this)">📋 Copier</button></div>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>⚠️ Problème: Les réponses sont trop génériques</h4>
+                    <p><strong>Solution :</strong> Soyez plus précis sur votre discipline dans les instructions</p>
+                </div>
+                
+                <div class="alert">
+                    <strong>💡 Conseil :</strong> Après chaque ajustement, cliquez sur "Save" et retestez avec le même prompt
+                </div>
+                
+                <div class="checklist">
+                    <h3>✅ Vérification Étape 3</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>J'ai testé avec 3-4 questions</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Le GPT cite mes documents</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Le format et le ton sont satisfaisants</label>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Étape 4: Partage -->
+            <section id="etape4" class="section">
+                <h2>4️⃣ Étape 4: Configuration du partage</h2>
+                <span class="duration">⏱ 5 minutes</span>
+                
+                <div class="alert alert-info">
+                    <strong>🎯 Objectif :</strong> Rendre votre GPT accessible via un lien
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Configurer la visibilité</strong>
+                    <ol style="margin-top: 10px;">
+                        <li>Onglet "Configure" → Section <strong>"Sharing"</strong></li>
+                        <li>Sélectionnez : <strong>"Anyone with the link"</strong> ✅</li>
+                        <li>Cliquez sur <strong>"Save"</strong></li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Obtenir le lien</strong>
+                    <ol style="margin-top: 10px;">
+                        <li>Cliquez sur l'icône de partage 🔗 (en haut à droite)</li>
+                        <li>Copiez le lien complet</li>
+                        <li>Format : <code>https://chat.openai.com/g/g-XXXXX-nom</code></li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Créer un QR Code (optionnel)</strong>
+                    <ol style="margin-top: 10px;">
+                        <li>Allez sur <a href="https://www.qr-code-generator.com" target="_blank">qr-code-generator.com</a></li>
+                        <li>Collez votre lien GPT</li>
+                        <li>Téléchargez le QR code</li>
+                    </ol>
+                </div>
+                
+                <div class="tips">
+                    <h4>💡 Pourquoi "Anyone with the link" ?</h4>
+                    <ul>
+                        <li>Vous gardez le contrôle (seuls ceux qui ont le lien)</li>
+                        <li>Facile à partager avec collègues/élèves</li>
+                        <li>Pas besoin de gérer des autorisations</li>
+                    </ul>
+                </div>
+                
+                <div class="checklist">
+                    <h3>✅ Vérification Étape 4</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>J'ai configuré "Anyone with the link"</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>J'ai copié le lien de mon GPT</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>J'ai testé le lien (onglet privé)</label>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Étape 5: Documentation -->
+            <section id="etape5" class="section">
+                <h2>5️⃣ Étape 5: Documentation</h2>
+                <span class="duration">⏱ 5 minutes</span>
+                
+                <div class="alert alert-info">
+                    <strong>🎯 Objectif :</strong> Créer une fiche pour que les utilisateurs sachent utiliser votre GPT
+                </div>
+                
+                <h3>Template de fiche technique</h3>
+                
+                <div class="prompt-box" id="doc-template"># [NOM DE VOTRE GPT]
+
+**🎯 Objectif**
+[En 1 phrase : À quoi sert votre GPT ?]
+
+**👥 Public cible**
+[Enseignants / Élèves / Tous]
+
+**💡 Exemples d'utilisation**
+1. [Cas d'usage 1]
+2. [Cas d'usage 2]
+3. [Cas d'usage 3]
+
+**🔗 Accès**
+Lien : [VOTRE LIEN ICI]
+
+**⚠️ Prérequis**
+- Compte ChatGPT (gratuit pour consulter)
+- Connexion Internet
+
+**📧 Support**
+[Votre nom] - [Votre email]
+LP Mahina, Polynésie française<button class="copy-btn" onclick="copyPrompt('doc-template', this)">📋 Copier</button></div>
+                
+                <div class="alert">
+                    <strong>💡 Conseil :</strong> Créez ce document dans Word/Google Docs et partagez-le avec vos collègues
+                </div>
+                
+                <div class="checklist">
+                    <h3>✅ Vérification Étape 5</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>J'ai créé la fiche technique</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Le lien d'accès est présent</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Les exemples d'utilisation sont concrets</label>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Checklist finale -->
+            <section class="section">
+                <h2>✅ Checklist Finale Complète</h2>
+                
+                <div class="alert alert-success">
+                    <strong>🎉 Avant de quitter la formation, vérifiez que :</strong>
+                </div>
+                
+                <div class="checklist">
+                    <h3>Création</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Répondu aux 5 questions de conception</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Rempli tous les champs (nom, description, instructions, starters)</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Uploadé 5-10 fichiers essentiels</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Activé Web Browsing et DALL-E</label>
+                    </div>
+                </div>
+                
+                <div class="checklist">
+                    <h3>Test</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Testé avec 3-4 questions réelles</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Vérifié que le GPT cite mes documents</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Ajusté les instructions si nécessaire</label>
+                    </div>
+                </div>
+                
+                <div class="checklist">
+                    <h3>Partage</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Configuré "Anyone with the link"</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Copié le lien d'accès</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Testé le lien dans un onglet privé</label>
+                    </div>
+                </div>
+                
+                <div class="checklist">
+                    <h3>Documentation</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Créé la fiche technique</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Sauvegardé la fiche + le lien</label>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <label>Prêt à partager avec mes collègues</label>
+                    </div>
+                </div>
+                
+                <div class="tips" style="margin-top: 30px;">
+                    <h4>🌺 Prochaines étapes</h4>
+                    <ul>
+                        <li><strong>Cette semaine :</strong> Utilisez votre GPT pour préparer 3 cours</li>
+                        <li><strong>Ce mois-ci :</strong> Ajoutez de nouveaux documents, affinez les instructions</li>
+                        <li><strong>Long terme :</strong> Créez des versions spécialisées (un pour vous, un pour les élèves)</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+        <div class="footer">
+            <h3>🎉 Félicitations !</h3>
+            <p style="margin: 15px 0; font-size: 1.2em;">
+                <strong>Vous avez créé votre propre GPT personnalisé !</strong>
+            </p>
+            <p style="margin: 15px 0;">
+                Vous êtes maintenant un <strong>CRÉATEUR D'IA</strong> !
+            </p>
+            <hr style="margin: 30px 0; opacity: 0.3;">
+            <h3>📧 Support & Contact</h3>
+            <p style="margin: 15px 0;">
+                <strong>M. VAIRAAROA Jimmy</strong><br>
+                jimmy.vairaaroa@ac-polynesie.pf<br>
+                LP Mahina - Polynésie française
+            </p>
+            <p style="margin-top: 20px; opacity: 0.8;">
+                Formation IA Niveau 4 - Vendredi 24 octobre 2025
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Fonction pour copier un prompt
+        function copyPrompt(id, button) {
+            const promptBox = document.getElementById(id);
+            const text = promptBox.textContent.replace(/📋 Copier|✅ Copié !/g, '').trim();
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = '✅ Copié !';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = '📋 Copier';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        
+        // Fonction pour toggle checkbox
+        function toggleCheck(item) {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            updateProgress();
+        }
+        
+        // Mettre à jour la barre de progression
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            const checked = document.querySelectorAll('.checklist input[type="checkbox"]:checked');
+            const progress = (checked.length / checkboxes.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+        
+        // Navigation smooth
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialiser
+        updateProgress();
+    </script>
+</body>
+</html>

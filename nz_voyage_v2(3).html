@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥝 Voyage Nouvelle-Zélande 2025-2026 | Famille Vairaaroa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kiwi-green: #4a7c59;
+            --fern-dark: #2d4a35;
+            --ocean-blue: #1e6091;
+            --maori-red: #c94c4c;
+            --sand-light: #f5f0e8;
+            --cream: #faf8f5;
+            --charcoal: #2c2c2c;
+            --gold-accent: #d4a574;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--fern-dark) 0%, var(--kiwi-green) 100%);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--kiwi-green) 50%, var(--fern-dark) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0C30 16.569 16.569 30 0 30c16.569 0 30 13.431 30 30 0-16.569 13.431-30 30-30C43.431 30 30 16.569 30 0z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-dates {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-travelers {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .traveler {
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--fern-dark);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--gold-accent);
+            display: inline-block;
+        }
+
+        /* Quick Info Cards */
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--kiwi-green);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--fern-dark);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card p {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .info-card .ref {
+            font-family: monospace;
+            background: var(--sand-light);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Calendar Grid */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, var(--kiwi-green), var(--fern-dark));
+            color: white;
+            padding: 1rem 1.25rem;
+        }
+
+        .day-header.auckland { background: linear-gradient(135deg, var(--ocean-blue), #134b6d); }
+        .day-header.rotorua { background: linear-gradient(135deg, var(--maori-red), #a33d3d); }
+        .day-header.taupo { background: linear-gradient(135deg, var(--gold-accent), #b8915e); }
+        .day-header.travel { background: linear-gradient(135deg, #6b7280, #4b5563); }
+        .day-header.special { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+
+        .day-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .day-location {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+
+        .day-content {
+            padding: 1.25rem;
+        }
+
+        .activity {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .activity:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: var(--kiwi-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .activity-name {
+            font-weight: 600;
+            color: var(--charcoal);
+            margin: 0.25rem 0;
+        }
+
+        .activity-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .activity-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--ocean-blue);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            margin-right: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .activity-link:hover {
+            color: var(--kiwi-green);
+            text-decoration: underline;
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .tag-resto { background: #fef3c7; color: #92400e; }
+        .tag-activity { background: #d1fae5; color: #065f46; }
+        .tag-hotel { background: #dbeafe; color: #1e40af; }
+        .tag-transport { background: #f3e8ff; color: #6b21a8; }
+        .tag-option { background: #e5e7eb; color: #374151; }
+        .tag-booking { background: #fee2e2; color: #991b1b; }
+
+        /* Booking Section */
+        .booking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .booking-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .booking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .booking-header {
+            padding: 1rem 1.25rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .booking-header.urgent {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+        }
+
+        .booking-header.recommended {
+            background: linear-gradient(135deg, #ea580c, #c2410c);
+        }
+
+        .booking-header.optional {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+        }
+
+        .booking-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .booking-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .booking-content {
+            padding: 1.25rem;
+        }
+
+        .booking-date {
+            color: var(--ocean-blue);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .booking-info {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .booking-info p {
+            margin-bottom: 0.4rem;
+        }
+
+        .booking-price {
+            background: var(--sand-light);
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .booking-price strong {
+            color: var(--fern-dark);
+        }
+
+        .booking-warning {
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+            padding: 0.75rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .booking-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .booking-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .booking-btn.primary {
+            background: var(--kiwi-green);
+            color: white;
+        }
+
+        .booking-btn.primary:hover {
+            background: var(--fern-dark);
+        }
+
+        .booking-btn.secondary {
+            background: var(--sand-light);
+            color: var(--charcoal);
+        }
+
+        .booking-btn.secondary:hover {
+            background: #e5e0d5;
+        }
+
+        .booking-summary {
+            background: linear-gradient(135deg, var(--fern-dark), var(--kiwi-green));
+            color: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .booking-summary h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .priority-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .priority-item {
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .priority-item.p1 { background: rgba(220, 38, 38, 0.3); }
+        .priority-item.p2 { background: rgba(234, 88, 12, 0.3); }
+        .priority-item.p3 { background: rgba(22, 163, 74, 0.3); }
+
+        /* Hotels Section */
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hotel-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hotel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--kiwi-green), var(--ocean-blue));
+        }
+
+        .hotel-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--fern-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hotel-dates {
+            color: var(--ocean-blue);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .hotel-details {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .hotel-details p {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Emergency Section */
+        .emergency-section {
+            background: linear-gradient(135deg, var(--maori-red), #a33d3d);
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .emergency-section h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .emergency-item {
+            background: rgba(255,255,255,0.15);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .emergency-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .emergency-item a {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Tip box */
+        .tip-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.25rem;
+            border-radius: 0 12px 12px 0;
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+
+        .tip-box strong {
+            color: #92400e;
+        }
+
+        .tip-box.urgent {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-left-color: #3b82f6;
+        }
+
+        .tip-box.urgent strong {
+            color: #1d4ed8;
+        }
+
+        /* Notes Section */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .note-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .note-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .note-header {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .note-header.todo {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #92400e;
+        }
+
+        .note-header.activities {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #065f46;
+        }
+
+        .note-header.restaurants {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: #991b1b;
+        }
+
+        .note-header.shopping-kids {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: #1e40af;
+        }
+
+        .note-header.shopping-perso {
+            background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+            color: #7c3aed;
+        }
+
+        .note-header.misc {
+            background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+            color: #374151;
+        }
+
+        .note-content {
+            padding: 1.25rem;
+        }
+
+        .note-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .note-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #e5e7eb;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .note-list li:last-child {
+            border-bottom: none;
+        }
+
+        .note-list li::before {
+            content: '○';
+            color: #9ca3af;
+            font-size: 0.8rem;
+            margin-top: 0.15rem;
+        }
+
+        .note-list li.done::before {
+            content: '✓';
+            color: #10b981;
+        }
+
+        .note-list li.done {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+
+        .note-list li.priority::before {
+            content: '★';
+            color: #f59e0b;
+        }
+
+        .note-list li.priority {
+            font-weight: 500;
+        }
+
+        .note-add {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .note-subheader {
+            font-weight: 600;
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .note-subheader:first-child {
+            margin-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--fern-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-brand {
+                font-size: 1.2rem;
+            }
+
+            .nav-links a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            nav {
+                position: relative;
+            }
+            
+            .day-card, .hotel-card, .info-card {
+                break-inside: avoid;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .day-card {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">🥝 NZ 2025</div>
+            <div class="nav-links">
+                <a onclick="document.getElementById('resume').scrollIntoView({behavior: 'smooth'})">Résumé</a>
+                <a onclick="document.getElementById('calendrier').scrollIntoView({behavior: 'smooth'})">Calendrier</a>
+                <a onclick="document.getElementById('hotels').scrollIntoView({behavior: 'smooth'})">Hôtels</a>
+                <a onclick="document.getElementById('transport').scrollIntoView({behavior: 'smooth'})">Transport</a>
+                <a onclick="document.getElementById('reservations').scrollIntoView({behavior: 'smooth'})">🎫 Réservations</a>
+                <a onclick="document.getElementById('restos').scrollIntoView({behavior: 'smooth'})">Restaurants</a>
+                <a onclick="document.getElementById('notes').scrollIntoView({behavior: 'smooth'})">📝 Notes</a>
+                <a onclick="document.getElementById('urgences').scrollIntoView({behavior: 'smooth'})">Urgences</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>🇳🇿 Nouvelle-Zélande</h1>
+            <p class="hero-dates">26 décembre 2025 → 10 janvier 2026</p>
+            <p>15 jours d'aventure en famille sur l'île du Nord</p>
+            <div class="hero-travelers">
+                <span class="traveler">👨 Jimmy</span>
+                <span class="traveler">👩 Jade</span>
+                <span class="traveler">👧 Leyla</span>
+                <span class="traveler">👧 Ada</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="resume">
+        <h2 class="section-title">📋 Informations essentielles</h2>
+        <div class="quick-info">
+            <div class="info-card">
+                <h3>✈️ Vol Aller</h3>
+                <p><strong>NZ903</strong> - Air New Zealand</p>
+                <p>Ven 26 déc 2025 à 3h00 (PPT)</p>
+                <p>→ Sam 27 déc 2025 à 7h40 (AKL)</p>
+                <p>Réf: <span class="ref">KEU2HH</span></p>
+            </div>
+            <div class="info-card">
+                <h3>✈️ Vol Retour</h3>
+                <p><strong>NZ902</strong> - Air New Zealand</p>
+                <p>Ven 9 janv 2026 à 19h30 (AKL)</p>
+                <p>→ Ven 9 janv 2026 à 1h30 (PPT)</p>
+                <p>Réf: <span class="ref">KEU2HH</span></p>
+            </div>
+            <div class="info-card">
+                <h3>🚗 Location Voiture</h3>
+                <p><strong>Toyota RAV4 AWD</strong></p>
+                <p>Ezi Car Rental - Auckland Airport</p>
+                <p>27 déc 08h00 → 10 janv 08h00</p>
+                <p>Réf: <span class="ref">R1KXSL</span></p>
+            </div>
+            <div class="info-card">
+                <h3>🛡️ Assurance</h3>
+                <p><strong>Mutuaide Assistance</strong></p>
+                <p>Couverture: 150 000€/pers</p>
+                <p>N° Police: <span class="ref">6960</span></p>
+                <p>Adhésion: <span class="ref">PO-TH-001731</span></p>
+            </div>
+            <div class="info-card">
+                <h3>📱 SIM Card</h3>
+                <p><strong>SIM FREE Internationale</strong></p>
+                <p>35 Go data en NZ</p>
+                <p>⚠️ Insérer à l'arrivée uniquement</p>
+                <p>Ne PAS utiliser à Tahiti!</p>
+            </div>
+            <div class="info-card">
+                <h3>📝 À ne pas oublier</h3>
+                <p>✅ Passeports valides</p>
+                <p>✅ NZeTA (demander 72h avant)</p>
+                <p>✅ Permis de conduire + traduction</p>
+                <p>✅ Carte bancaire (au nom conducteur)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendrier">
+        <h2 class="section-title">📅 Calendrier jour par jour</h2>
+        <div class="calendar-grid">
+
+            <!-- JOUR 1 - Samedi 27 décembre -->
+            <div class="day-card">
+                <div class="day-header auckland">
+                    <div class="day-date">Samedi 27 décembre</div>
+                    <div class="day-location">📍 Auckland - Arrivée</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">7h40</span>
+                        <div class="activity-name"><span class="tag tag-transport">Arrivée</span> Atterrissage Auckland</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">8h00</span>
+                        <div class="activity-name"><span class="tag tag-transport">Voiture</span> Récupération RAV4</div>
+                        <p class="activity-desc">Comptoir Ezi Car dans le terminal</p>
+                        <a href="https://maps.google.com/?q=Auckland+Airport+Terminal" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Matin</span>
+                        <div class="activity-name"><span class="tag tag-resto">Brunch</span> Petit déj en ville</div>
+                        <p class="activity-desc">Café à Ponsonby ou CBD - arrivée tôt, profitez-en!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">15h00</span>
+                        <div class="activity-name"><span class="tag tag-hotel">Check-in</span> Nesuto St Martins</div>
+                        <a href="https://maps.google.com/?q=Nesuto+St+Martins+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Balade</span> Cornwall Park & One Tree Hill</div>
+                        <p class="activity-desc">Parc magnifique avec vue panoramique - parfait pour se dégourdir après le vol</p>
+                        <a href="https://www.cornwallpark.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=One+Tree+Hill+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Repas léger / Courses</div>
+                        <p class="activity-desc">Countdown ou New World pour les courses - dîner simple après le voyage</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 2 - Dimanche 28 décembre -->
+            <div class="day-card">
+                <div class="day-header auckland">
+                    <div class="day-date">Dimanche 28 décembre</div>
+                    <div class="day-location">📍 Auckland</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Matin</span>
+                        <div class="activity-name"><span class="tag tag-activity">Zoo</span> Auckland Zoo</div>
+                        <p class="activity-desc">Kiwis, keas, tuataras - prévoir 3h minimum</p>
+                        <a href="https://www.aucklandzoo.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Auckland+Zoo" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midi</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Café au Zoo ou Ponsonby</div>
+                        <p class="activity-desc">Le zoo a un café correct, sinon Ponsonby Road est à 5min</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Balade</span> Wynyard Quarter & Silo Park</div>
+                        <p class="activity-desc">Quartier moderne sur le port - playgrounds, fish & chips, ambiance détendue</p>
+                        <a href="https://maps.google.com/?q=Wynyard+Quarter+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Dim Sum - Restauration chinoise</div>
+                        <p class="activity-desc">Quartier chinois Auckland CBD - plusieurs options</p>
+                        <a href="https://maps.google.com/?q=Auckland+Chinatown" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 3 - Lundi 29 décembre -->
+            <div class="day-card">
+                <div class="day-header auckland">
+                    <div class="day-date">Lundi 29 décembre</div>
+                    <div class="day-location">📍 Rainbow's End - Parc d'attractions</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box">
+                        <strong>💡 Conseil :</strong> Arriver à l'ouverture (10h) pour profiter des attractions avec moins d'attente. Prévoir toute la journée.
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">10h00 - 17h00</span>
+                        <div class="activity-name"><span class="tag tag-activity">Parc</span> 🎢 Rainbow's End</div>
+                        <p class="activity-desc">Le plus grand parc d'attractions de NZ! Montagnes russes, manèges à sensations, attractions pour enfants - parfait pour Leyla et Ada!</p>
+                        <a href="https://www.rainbowsend.co.nz/" target="_blank" class="activity-link">🌐 Site officiel</a>
+                        <a href="https://maps.google.com/?q=Rainbow's+End+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Sur place</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Restaurants du parc</div>
+                        <p class="activity-desc">Plusieurs options sur place - burgers, pizzas, snacks</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Dîner à l'appartement</div>
+                        <p class="activity-desc">Repos après une journée bien remplie au parc!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 4 - Mardi 30 décembre -->
+            <div class="day-card">
+                <div class="day-header auckland">
+                    <div class="day-date">Mardi 30 décembre</div>
+                    <div class="day-location">📍 Auckland</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Matin</span>
+                        <div class="activity-name"><span class="tag tag-activity">Aquarium</span> SEA LIFE Kelly Tarlton's</div>
+                        <p class="activity-desc">Requins, raies, manchots, tunnel sous-marin - les filles vont adorer</p>
+                        <a href="https://www.visitsealife.com/auckland/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=SEA+LIFE+Kelly+Tarltons+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midi</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Mission Bay</div>
+                        <p class="activity-desc">Fish & chips ou café en bord de mer (juste à côté de l'aquarium)</p>
+                        <a href="https://maps.google.com/?q=Mission+Bay+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Waterfront</span> Promenade Viaduct & Britomart</div>
+                        <p class="activity-desc">Balade le long du port, architecture, shopping si envie</p>
+                        <a href="https://maps.google.com/?q=Viaduct+Harbour+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Restaurant japonais CBD</div>
+                        <p class="activity-desc">Auckland a d'excellents restaurants japonais</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 5 - Mercredi 31 décembre - RÉVEILLON -->
+            <div class="day-card">
+                <div class="day-header special">
+                    <div class="day-date">🎉 Mercredi 31 décembre</div>
+                    <div class="day-location">📍 Good Planet + Auckland - RÉVEILLON</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box">
+                        <strong>🍓 Journée à Good Planet :</strong> Ferme familiale avec activités - cueillette, animaux, jeux d'eau, déjeuner sur place. Retour à l'hôtel pour sieste avant le grand dîner!
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Matinée complète</span>
+                        <div class="activity-name"><span class="tag tag-activity">Ferme</span> 🍓 Good Planet - Cueillette de fraises</div>
+                        <p class="activity-desc">Ferme écologique avec cueillette de fraises, visite des animaux, labyrinthe de maïs</p>
+                        <a href="https://www.goodplanet.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Good+Planet+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midi</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Café Good Planet</div>
+                        <p class="activity-desc">Déjeuner sur place au café de la ferme - produits locaux</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Jeux</span> 💦 Splash Park Good Planet</div>
+                        <p class="activity-desc">Aire de jeux aquatiques + bouse sèche - parfait pour les filles!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Début d'après-midi</span>
+                        <div class="activity-name">🏨 Retour hôtel et SIESTE</div>
+                        <p class="activity-desc">Repos important pour être en forme pour le dîner de réveillon!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">20h15</span>
+                        <div class="activity-name"><span class="tag tag-booking">✅ CONFIRMÉ & PAYÉ</span> 🍽️ RÉVEILLON - Eight at Cordis</div>
+                        <p class="activity-desc">Restaurant gastronomique à l'hôtel Cordis - menu spécial réveillon - totalement payé!</p>
+                        <small style="color: #10b981; font-weight: 600;">✅ Réservation 20h15 confirmée et réglée pour le 31 décembre</small>
+                        <a href="https://www.cordishotels.com/en/auckland/restaurants-and-bars/eight" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Cordis+Hotel+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">23h30</span>
+                        <div class="activity-name"><span class="tag tag-activity">Fête</span> 🎆 Feux d'artifice Sky Tower</div>
+                        <p class="activity-desc">Vue depuis Victoria Park ou Viaduct Harbour</p>
+                        <a href="https://maps.google.com/?q=Victoria+Park+Auckland" target="_blank" class="activity-link">📍 Victoria Park</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 6 - Jeudi 1er janvier -->
+            <div class="day-card">
+                <div class="day-header auckland">
+                    <div class="day-date">Jeudi 1er janvier</div>
+                    <div class="day-location">📍 Auckland - Jour de l'An</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Matin</span>
+                        <div class="activity-name">☀️ Grasse matinée bien méritée</div>
+                        <p class="activity-desc">Récupération après le réveillon</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midi</span>
+                        <div class="activity-name"><span class="tag tag-resto">Brunch</span> One Tree Hill Buffet</div>
+                        <p class="activity-desc">Brunch buffet pour bien commencer l'année</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Plage</span> Mission Bay & St Heliers</div>
+                        <p class="activity-desc">Baignade et détente - deux plages connectées par une belle promenade</p>
+                        <a href="https://maps.google.com/?q=Mission+Bay+Beach+Auckland" target="_blank" class="activity-link">📍 Mission Bay</a>
+                        <a href="https://maps.google.com/?q=St+Heliers+Beach+Auckland" target="_blank" class="activity-link">📍 St Heliers</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Fin d'après-midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Playground</span> Playgrounds CBD</div>
+                        <p class="activity-desc">Aires de jeux pour les filles - Victoria Park ou Myers Park</p>
+                        <a href="https://maps.google.com/?q=Myers+Park+Playground+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> À l'appartement</div>
+                        <p class="activity-desc">Dernière soirée à l'appart - préparer les valises pour demain</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 7 - Vendredi 2 janvier - ROUTE VERS ROTORUA -->
+            <div class="day-card">
+                <div class="day-header travel">
+                    <div class="day-date">Vendredi 2 janvier</div>
+                    <div class="day-location">🚗 Auckland → Rotorua (via Hamilton & Tirau)</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box">
+                        <strong>⏰ Check-out 10h :</strong> Préparer les valises la veille. Route en 3 étapes avec pauses découvertes!
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">8h00 - 10h00</span>
+                        <div class="activity-name">🧳 Petit-déj, valises et check-out</div>
+                        <p class="activity-desc">Départ vers Hamilton (1h30 de route)</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">~11h30 - 13h00</span>
+                        <div class="activity-name"><span class="tag tag-activity">Jardins</span> 🌺 Hamilton Gardens</div>
+                        <p class="activity-desc">Magnifiques jardins thématiques (japonais, italien, Tudor, etc.) - balade relaxante et dépaysante</p>
+                        <a href="https://hamiltongardens.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Hamilton+Gardens" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">13h00 - 14h30</span>
+                        <div class="activity-name"><span class="tag tag-shopping">Shopping</span> 🛍️ The Base Te Rapa</div>
+                        <p class="activity-desc">Grand centre commercial - déjeuner + shopping + pause pour les filles</p>
+                        <a href="https://www.thebase.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=The+Base+Te+Rapa+Hamilton" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">~15h00</span>
+                        <div class="activity-name"><span class="tag tag-activity">Stop</span> 🐑 Tirau - Village des sculptures</div>
+                        <p class="activity-desc">Petit village célèbre pour ses bâtiments en forme d'animaux géants (mouton, chien) - photo stop sympa! (30 min de Hamilton)</p>
+                        <a href="https://maps.google.com/?q=Tirau+New+Zealand" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">~16h00 - 16h30</span>
+                        <div class="activity-name"><span class="tag tag-hotel">Check-in</span> Arawa Park Hotel</div>
+                        <p class="activity-desc">45 min de route Tirau → Rotorua</p>
+                        <a href="https://maps.google.com/?q=Arawa+Park+Hotel+Rotorua" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Fin de journée</span>
+                        <div class="activity-name"><span class="tag tag-activity">Balade</span> Découverte de Rotorua</div>
+                        <p class="activity-desc">Balade au bord du lac, découverte de l'odeur de soufre caractéristique!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Restaurant Rotorua centre</div>
+                        <p class="activity-desc">Eat Street (Tutanekai St) - plusieurs options</p>
+                        <a href="https://maps.google.com/?q=Eat+Street+Rotorua" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 8 - Samedi 3 janvier -->
+            <div class="day-card">
+                <div class="day-header rotorua">
+                    <div class="day-date">Samedi 3 janvier</div>
+                    <div class="day-location">📍 Rotorua - JOURNÉE TE PUIA COMPLÈTE</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box urgent">
+                        <strong>✨ DOUBLE EXPÉRIENCE TE PUIA - JOUR + NUIT ! ✅ CONFIRMÉ</strong><br>
+                        Matin : Te Rā + Haka • Soir : Buffet Hāngī + Mārama Light Show • Booking Ref: CCDXBWJX4
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">9h00 - 11h00</span>
+                        <div class="activity-name"><span class="tag tag-booking">✅ CONFIRMÉ</span> ♨️ Te Puia - Te Rā + Haka</div>
+                        <p class="activity-desc"><strong>PARTIE 1 - MATIN :</strong> Visite guidée 90 min (geysers Pōhutu, Kiwi Conservation Centre, Arts & Crafts) + spectacle Haka 30 min dans la maison traditionnelle sculptée</p>
+                        <small style="color: #10b981; font-weight: 600;">✅ 9h-11h • 2A ($270) + 1 enfant ($72.50) + 1 bébé gratuit</small>
+                        <a href="https://www.tepuia.com/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Te+Puia+Rotorua" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">11h30 - 13h30</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Eat Street (Tutanekai St)</div>
+                        <p class="activity-desc">Retour en ville, déjeuner tranquille</p>
+                        <a href="https://maps.google.com/?q=Eat+Street+Rotorua" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">14h00 - 17h00</span>
+                        <div class="activity-name"><span class="tag tag-activity">Repos</span> Retour à l'hôtel + sieste</div>
+                        <p class="activity-desc">Repos important pour être en forme pour la soirée Te Puia!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">17h00 - 21h00</span>
+                        <div class="activity-name"><span class="tag tag-booking">✅ CONFIRMÉ</span> ✨ Te Puia - Dinner + Mārama</div>
+                        <p class="activity-desc"><strong>PARTIE 2 - SOIR :</strong> Buffet hāngī traditionnel + spectacle culturel Māori + promenade nocturne guidée dans la vallée géothermale illuminée (Mārama Geyser Light Trail) - chocolat chaud sous les étoiles!</p>
+                        <small style="color: #10b981; font-weight: 600;">✅ Soir • 2A ($280) + 1 enfant ($95) + 1 bébé gratuit • Total jour: $717.50</small>
+                        <a href="https://www.tepuia.com/experiences/te-po/" target="_blank" class="activity-link">🌐 Info Te Pō</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">~21h30</span>
+                        <div class="activity-name">🏨 Retour hôtel et dodo</div>
+                        <p class="activity-desc">Longue journée - repos bien mérité!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 9 - Dimanche 4 janvier -->
+            <div class="day-card">
+                <div class="day-header rotorua">
+                    <div class="day-date">Dimanche 4 janvier</div>
+                    <div class="day-location">📍 Rotorua - JOURNÉE AGRODOME</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box urgent">
+                        <strong>✅ AGRODOME FARM EXPERIENCE CONFIRMÉ</strong><br>
+                        Départ 9h30 • Booking #378799 • Family 2 Adults & 2 Children • Durée totale: 2h30
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">9h30 - 12h00</span>
+                        <div class="activity-name"><span class="tag tag-booking">✅ CONFIRMÉ</span> 🐑 Agrodome Farm Experience COMPLET</div>
+                        <p class="activity-desc"><strong>EXPÉRIENCE COMPLÈTE :</strong> Farm Show (spectacle moutons) + Dog Trial (chiens de berger) + Farmyard Nursery (bébés animaux) + Farm Tour (visite ferme en tracteur)</p>
+                        <small style="color: #10b981; font-weight: 600;">✅ 9h30 • Booking #378799 • 1x Family (2A + 2 enfants)</small>
+                        <p class="activity-desc"><strong>💡 Arriver 10min avant :</strong> Check-in à la réception à 9h20. Durée totale: 2h30</p>
+                        <a href="https://www.agrodome.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Agrodome+Rotorua" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">12h30 - 14h00</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Farmyard Café (Agrodome)</div>
+                        <p class="activity-desc">Café sur place avec vue sur la ferme - pas de réservation nécessaire</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-option">Option</span> 🥝 National Kiwi Hatchery</div>
+                        <p class="activity-desc">Juste à côté de l'Agrodome - voir des kiwis et des œufs en incubation (si saison)</p>
+                        <a href="https://www.nationalkiwihatchery.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Fin d'après-midi / Soir</span>
+                        <div class="activity-name"><span class="tag tag-activity">Détente</span> 🛁 Polynesian Spa</div>
+                        <p class="activity-desc">Bains thermaux en famille - parfait pour terminer la journée</p>
+                        <a href="https://www.polynesianspa.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Polynesian+Spa+Rotorua" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 10 - Lundi 5 janvier -->
+            <div class="day-card">
+                <div class="day-header rotorua">
+                    <div class="day-date">Lundi 5 janvier</div>
+                    <div class="day-location">📍 Rotorua - DERNIÈRE JOURNÉE</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box urgent">
+                        <strong>⚠️ REDWOODS NIGHTLIGHTS - PAS DE FAST PASS</strong><br>
+                        Combo confirmé mais file d'attente normale (fast pass sold out ou créneau 23h trop tard). Arriver tôt le soir !
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Matin / Midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Fun</span> 🛷 Skyline Rotorua & Luge</div>
+                        <p class="activity-desc">Télécabine + pistes de luge - prévoir plusieurs descentes!</p>
+                        <small style="color: #16a34a; font-weight: 600;">✅ Pas de réservation nécessaire</small>
+                        <a href="https://www.skyline.co.nz/en/rotorua/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Skyline+Rotorua" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midi</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Restaurant Skyline (en haut)</div>
+                        <p class="activity-desc">Vue panoramique sur le lac</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-booking">✅ CONFIRMÉ</span> 🌲 Redwoods - Treewalk de jour</div>
+                        <p class="activity-desc"><strong>PARTIE 1 :</strong> Balade suspendue parmi les séquoias géants - ponts suspendus à 12m de haut</p>
+                        <small style="color: #10b981; font-weight: 600;">✅ Eco Combo : Treewalk + Glowworms + Nightlights • 2A ($168) + 1 enfant ($59) = $227</small>
+                        <a href="https://www.treewalk.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Redwoods+Treewalk+Rotorua" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir (dès 19h-19h30)</span>
+                        <div class="activity-name"><span class="tag tag-booking">✅ CONFIRMÉ</span> ✨ Treewalk Nightlights + Glowworms</div>
+                        <p class="activity-desc"><strong>PARTIE 2 :</strong> Même parcours mais illuminé dans la nuit + grotte aux glowworms - magique!</p>
+                        <small style="color: #ea580c; font-weight: 600;">⚠️ PAS de fast pass - arriver TÔT (vers 19h) pour éviter trop d'attente à la file normale</small>
+                        <p class="activity-desc"><strong>💡 Conseil :</strong> Prévoir 30-45 min d'attente potentielle. Apporter snacks/eau pour les enfants.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après Treewalk</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Eat Street ou hôtel</div>
+                        <p class="activity-desc">⚠️ Préparer les valises ce soir - départ demain matin 10h!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 11 - Mardi 6 janvier - ROUTE VERS TAUPO -->
+            <div class="day-card">
+                <div class="day-header travel">
+                    <div class="day-date">Mardi 6 janvier</div>
+                    <div class="day-location">🚗 Rotorua → Taupo</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box">
+                        <strong>⏰ Check-out 10h :</strong> Valises prêtes la veille, petit-déj buffet inclus, route tranquille vers Taupo (1h).
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">7h30 - 9h30</span>
+                        <div class="activity-name"><span class="tag tag-resto">Petit-déj</span> Buffet à l'hôtel (inclus)</div>
+                        <p class="activity-desc">Profiter du buffet avant de partir</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">10h00</span>
+                        <div class="activity-name"><span class="tag tag-hotel">Check-out</span> Arawa Park Hotel</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">~11h00</span>
+                        <div class="activity-name">🚗 Arrivée région Taupo</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">11h00</span>
+                        <div class="activity-name"><span class="tag tag-activity">Nature</span> 💧 Huka Falls</div>
+                        <p class="activity-desc">Chutes d'eau impressionnantes - eau turquoise, 5min du resort</p>
+                        <a href="https://maps.google.com/?q=Huka+Falls+Taupo" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">12h00</span>
+                        <div class="activity-name"><span class="tag tag-activity">Géothermie</span> 🌋 Craters of the Moon</div>
+                        <p class="activity-desc">Paysage lunaire, fumerolles - balade 45min</p>
+                        <a href="https://www.cratersofthemoon.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Craters+of+the+Moon+Taupo" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">13h00</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Taupo centre-ville</div>
+                        <p class="activity-desc">Nombreux cafés sur le lac</p>
+                        <a href="https://maps.google.com/?q=Taupo+Town+Centre" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">15h00</span>
+                        <div class="activity-name"><span class="tag tag-hotel">Check-in</span> Wairakei Resort</div>
+                        <a href="https://maps.google.com/?q=Wairakei+Resort+Taupo" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Détente</span> Wairakei Terraces</div>
+                        <p class="activity-desc">Terrasses thermales près du resort - baignade en plein air</p>
+                        <a href="https://www.wairakeiterraces.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Restaurant du resort ou Taupo</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 12 - Mercredi 7 janvier - RETOUR AUCKLAND via WAITOMO -->
+            <div class="day-card">
+                <div class="day-header travel">
+                    <div class="day-date">Mercredi 7 janvier</div>
+                    <div class="day-location">🚗 Taupo → Waitomo → Auckland</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box urgent">
+                        <strong>✨ JOURNÉE SPÉCIALE - DOUBLE GROTTES WAITOMO! ✅ RÉSERVÉ</strong><br>
+                        Combo Ruakuri Cave + Glowworm Caves confirmé! Départ tranquille 9h30 pour arriver 30 min avant le 1er tour.
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">7h30 - 9h00</span>
+                        <div class="activity-name"><span class="tag tag-resto">Petit-déj</span> Buffet au resort (inclus)</div>
+                        <p class="activity-desc">1h30 pour profiter du buffet tranquillement, sans rush!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">9h00 - 9h30</span>
+                        <div class="activity-name"><span class="tag tag-hotel">Finir valises</span> + Check-out Wairakei Resort</div>
+                        <p class="activity-desc">30 min pour boucler les bagages et quitter l'hôtel sereinement</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">9h30 - 11h00</span>
+                        <div class="activity-name">🚗 Route vers Waitomo</div>
+                        <p class="activity-desc">≈1h30 de route via Otorohanga. Arrivée 30 min avant le tour = timing parfait!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">11h00 - 11h30</span>
+                        <div class="activity-name"><span class="tag tag-activity">Arrivée</span> Waitomo Village</div>
+                        <p class="activity-desc">30 min d'avance : café, toilettes, préparation avant Ruakuri Cave</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">11h30 - 13h00</span>
+                        <div class="activity-name"><span class="tag tag-booking">✅ RÉSERVÉ</span> 🌟 Ruakuri Cave</div>
+                        <p class="activity-desc">Visite guidée 1h30. Spirale descendante de 15m, formations géologiques spectaculaires, cascade souterraine + glowworms!</p>
+                        <small style="color: #10b981; font-weight: 600;">✅ Confirmé 11h30 - Family Pass (2A+2C) - $419.22 NZD</small>
+                        <a href="https://maps.google.com/?q=Ruakuri+Cave+Waitomo" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">13h00 - 15h30</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Huhu Cafe + Pause</div>
+                        <p class="activity-desc">Restaurant 5★ à Waitomo. Puis balade Ruakuri Scenic Reserve (30 min) ou repos avant 2e grotte.</p>
+                        <a href="https://www.huhucafe.co.nz/" target="_blank" class="activity-link">🌐 Huhu Cafe</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">15h50 - 16h35</span>
+                        <div class="activity-name"><span class="tag tag-booking">✅ RÉSERVÉ</span> ✨ Waitomo Glowworm Caves</div>
+                        <p class="activity-desc">L'expérience ICONIQUE! Promenade en bateau sous des milliers de vers luisants - magique! Durée 45 min.</p>
+                        <small style="color: #10b981; font-weight: 600;">✅ Confirmé 15h50 (3:50pm) - Inclus dans combo</small>
+                        <a href="https://maps.google.com/?q=Waitomo+Glowworm+Caves" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">16h45 - 19h15</span>
+                        <div class="activity-name">🚗 Route vers Auckland</div>
+                        <p class="activity-desc">≈2h30 via Hamilton (autoroute). Coucher de soleil en route.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">19h30</span>
+                        <div class="activity-name"><span class="tag tag-hotel">Check-in</span> SkyCity Hotel</div>
+                        <p class="activity-desc">En plein centre d'Auckland, au pied de la Sky Tower</p>
+                        <a href="https://maps.google.com/?q=SkyCity+Hotel+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">20h00</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Fortuna Buffet ou livraison</div>
+                        <p class="activity-desc">Arrivée tardive - option buffet SkyCity ou Uber Eats à l'hôtel</p>
+                        <a href="https://www.skycityauckland.co.nz/restaurants/fortuna/" target="_blank" class="activity-link">🌐 Fortuna</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 13 - Jeudi 8 janvier -->
+            <div class="day-card">
+                <div class="day-header auckland">
+                    <div class="day-date">Jeudi 8 janvier</div>
+                    <div class="day-location">📍 Auckland</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Journée</span>
+                        <div class="activity-name"><span class="tag tag-booking">🎫 RÉSERVER</span> 🎢 Rainbow's End</div>
+                        <p class="activity-desc">Parc d'attractions - attractions pour tous les âges, prévoir la journée</p>
+                        <small style="color: #ea580c; font-weight: 600;">🟠 Capacité limitée - janvier très fréquenté</small>
+                        <a href="https://www.rainbowsend.co.nz/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Rainbows+End+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midi</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Restauration sur place</div>
+                        <p class="activity-desc">Plusieurs options dans le parc</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Soir</span>
+                        <div class="activity-name"><span class="tag tag-resto">Dîner</span> Smokeland BBQ</div>
+                        <p class="activity-desc">BBQ américain - viandes fumées, ambiance décontractée</p>
+                        <a href="https://maps.google.com/?q=Smokeland+BBQ+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOUR 14 - Vendredi 9 janvier - DERNIER JOUR -->
+            <div class="day-card">
+                <div class="day-header travel">
+                    <div class="day-date">Vendredi 9 janvier</div>
+                    <div class="day-location">✈️ Dernier jour - Vol retour</div>
+                </div>
+                <div class="day-content">
+                    <div class="tip-box">
+                        <strong>⚠️ Vol à 19h30 :</strong> Restitution voiture 2h avant. Prévoir marge pour l'aéroport!
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Matin</span>
+                        <div class="activity-name"><span class="tag tag-activity">Vue</span> 🗼 Sky Tower</div>
+                        <p class="activity-desc">Vue panoramique sur Auckland - juste à côté de l'hôtel!</p>
+                        <a href="https://www.skycityauckland.co.nz/sky-tower/" target="_blank" class="activity-link">🌐 Site</a>
+                        <a href="https://maps.google.com/?q=Sky+Tower+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">11h00</span>
+                        <div class="activity-name"><span class="tag tag-hotel">Check-out</span> SkyCity Hotel</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midi</span>
+                        <div class="activity-name"><span class="tag tag-resto">Déjeuner</span> Dernier repas en NZ</div>
+                        <p class="activity-desc">Auckland CBD ou Viaduct - choisir un endroit sympa!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Après-midi</span>
+                        <div class="activity-name"><span class="tag tag-activity">Shopping</span> Derniers achats souvenirs</div>
+                        <p class="activity-desc">Commercial Bay ou Queen Street</p>
+                        <a href="https://maps.google.com/?q=Commercial+Bay+Auckland" target="_blank" class="activity-link">📍 Maps</a>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">16h00</span>
+                        <div class="activity-name">🚗 Route vers l'aéroport (≈30min)</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">17h00</span>
+                        <div class="activity-name"><span class="tag tag-transport">Voiture</span> Restitution RAV4</div>
+                        <p class="activity-desc">Check-in ferme à 18h00!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">19h30</span>
+                        <div class="activity-name"><span class="tag tag-transport">Vol</span> ✈️ Décollage NZ902</div>
+                        <p class="activity-desc">Arrivée Papeete 1h30 (même jour) 🌺</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="reservations">
+        <h2 class="section-title">🎫 Réservations à faire</h2>
+        
+        <div class="booking-summary">
+            <h3>📋 Ordre de priorité des réservations</h3>
+            <div class="priority-list">
+                <span class="priority-item p1">🔴 1. Hobbiton (URGENT - Plus de place 😢)</span>
+                <span class="priority-item" style="background: #d1fae5; color: #065f46; border-color: #10b981;">✅ 2. Waitomo Combo (CONFIRMÉ)</span>
+                <span class="priority-item" style="background: #d1fae5; color: #065f46; border-color: #10b981;">✅ 3. Te Puia Jour+Nuit (CONFIRMÉ)</span>
+                <span class="priority-item" style="background: #d1fae5; color: #065f46; border-color: #10b981;">✅ 4. Redwoods Nightlights (CONFIRMÉ)</span>
+                <span class="priority-item" style="background: #d1fae5; color: #065f46; border-color: #10b981;">✅ 5. Réveillon Eight@Cordis (CONFIRMÉ)</span>
+                <span class="priority-item p2">🟠 6. Rainbow's End</span>
+                <span class="priority-item p3">🟢 7. Skyline Luge (pas nécessaire)</span>
+            </div>
+        </div>
+
+        <div class="booking-grid">
+            
+            <!-- HOBBITON -->
+            <div class="booking-card">
+                <div class="booking-header urgent">
+                    <span class="booking-title">🧙 Hobbiton Movie Set</span>
+                    <span class="booking-badge">🔴 Urgent</span>
+                </div>
+                <div class="booking-content">
+                    <p class="booking-date">📅 Vendredi 2 janvier 2026</p>
+                    <div class="booking-info">
+                        <p>🎬 Seul moyen de visiter = tour guidé</p>
+                        <p>⏱️ Durée: 2h environ</p>
+                        <p>📍 Matamata (sur la route Auckland → Rotorua)</p>
+                        <p>🕐 Arriver 20 min avant le départ</p>
+                    </div>
+                    <div class="booking-price">
+                        <strong>💰 Tarif famille estimé:</strong><br>
+                        Family Pass (2 adultes + 2 enfants 11-17): ~310-330 NZD<br>
+                        <small>⚠️ Enfants 0-10 ans: GRATUIT mais ticket obligatoire</small>
+                    </div>
+                    <div class="booking-warning">
+                        <strong>⚠️ TRÈS IMPORTANT:</strong> Décembre-janvier = haute saison! Les tours se remplissent des mois à l'avance. Réservez MAINTENANT.
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.hobbitontours.com/" target="_blank" class="booking-btn primary">🌐 Réserver maintenant</a>
+                        <a href="tel:+6478881505" class="booking-btn secondary">📞 (07) 888-1505</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WAITOMO COMBO -->
+            <div class="booking-card">
+                <div class="booking-header confirmed" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <span class="booking-title">✨ Waitomo Caves COMBO</span>
+                    <span class="booking-badge" style="background: white; color: #059669;">✅ Confirmé</span>
+                </div>
+                <div class="booking-content">
+                    <p class="booking-date">📅 Mercredi 7 janvier 2026</p>
+                    <div class="booking-info">
+                        <p><strong>🌟 COMBO: Ruakuri Cave + Glowworm Caves</strong></p>
+                        <p style="color: #059669; font-weight: 600;">✅ RÉSERVATION CONFIRMÉE</p>
+                        <hr style="margin: 0.75rem 0; border: none; border-top: 1px solid #e5e7eb;">
+                        <p><strong>11:30am</strong> - Ruakuri Cave (1h30)</p>
+                        <p style="font-size: 0.9rem; margin-left: 1.5rem;">Spirale descendante, formations géologiques, cascade souterraine</p>
+                        <p><strong>15:50pm</strong> - Waitomo Glowworm Caves (45 min)</p>
+                        <p style="font-size: 0.9rem; margin-left: 1.5rem;">Bateau sous la voûte étoilée de glowworms - iconique!</p>
+                        <p>📍 Waitomo Village (route Taupo → Auckland)</p>
+                    </div>
+                    <div class="booking-price">
+                        <strong>💰 Tarif payé:</strong><br>
+                        Family Pass (2A+2C): <strong>$419.22 NZD</strong><br>
+                        <small>Inclus: 2 adultes + 1 enfant (25-26 ans) + 1 infant gratuit (Ada 3 ans)</small><br>
+                        <small style="color: #059669;">✅ Payé par carte bancaire</small>
+                    </div>
+                    <div class="booking-warning" style="background: #d1fae5; border-left-color: #10b981;">
+                        <strong>✅ TOUT EST PRÊT:</strong> Gap de 4h20 entre les 2 grottes = parfait pour déjeuner tranquillement au Huhu Cafe et se balader. Arriver 15 min avant chaque tour.
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.waitomo.com/" target="_blank" class="booking-btn primary">🌐 Site Waitomo</a>
+                        <a href="tel:+6478788228" class="booking-btn secondary">📞 +64 7 878 8228</a>
+                        <a href="https://maps.google.com/?q=Waitomo+Caves" target="_blank" class="booking-btn secondary">📍 Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TE PUIA -->
+            <div class="booking-card">
+                <div class="booking-header confirmed" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <span class="booking-title">♨️ Te Puia - DOUBLE EXPÉRIENCE</span>
+                    <span class="booking-badge" style="background: white; color: #059669;">✅ Confirmé</span>
+                </div>
+                <div class="booking-content">
+                    <p class="booking-date">📅 Samedi 3 janvier 2026</p>
+                    <div class="booking-info">
+                        <p style="color: #059669; font-weight: 600;">✅ RÉSERVATION DOUBLE CONFIRMÉE - JOUR + NUIT</p>
+                        <hr style="margin: 0.75rem 0; border: none; border-top: 1px solid #e5e7eb;">
+                        <p><strong>PARTIE 1 - MATIN (9h-11h)</strong></p>
+                        <p style="font-size: 0.9rem; margin-left: 1.5rem;">✨ Te Rā + Haka Combo</p>
+                        <p style="font-size: 0.9rem; margin-left: 1.5rem;">Visite guidée 90 min (geysers Pōhutu + Kiwi Centre + Arts & Crafts) + spectacle Haka 30 min</p>
+                        <hr style="margin: 0.75rem 0; border: none; border-top: 1px solid #e5e7eb;">
+                        <p><strong>PARTIE 2 - SOIR</strong></p>
+                        <p style="font-size: 0.9rem; margin-left: 1.5rem;">✨ Dinner + Mārama Light Trail</p>
+                        <p style="font-size: 0.9rem; margin-left: 1.5rem;">Buffet hāngī traditionnel + spectacle culturel + promenade nocturne guidée vallée géothermale illuminée + chocolat chaud</p>
+                        <p>📍 Rotorua - Whakarewarewa Valley</p>
+                    </div>
+                    <div class="booking-price">
+                        <strong>💰 Tarif total payé:</strong><br>
+                        Te Rā+Haka: $342.50 (2A + 1C + 1 bébé gratuit)<br>
+                        Dinner+Mārama: $375.00 (2A + 1C + 1 bébé gratuit)<br>
+                        <strong style="color: #059669;">TOTAL: $717.50 NZD</strong><br>
+                        <small style="color: #059669;">✅ Booking Ref: CCDXBWJX4 • Order: 55000</small>
+                    </div>
+                    <div class="booking-warning" style="background: #d1fae5; border-left-color: #10b981;">
+                        <strong>✅ JOURNÉE COMPLÈTE TE PUIA:</strong> Matin (culture + geysers) + pause déjeuner en ville + repos à l'hôtel + soir (buffet + lumières magiques). Parfait pour profiter à fond!
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.tepuia.com/" target="_blank" class="booking-btn primary">🌐 Site Te Puia</a>
+                        <a href="https://maps.google.com/?q=Te+Puia+Rotorua" target="_blank" class="booking-btn secondary">📍 Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REDWOODS NIGHTLIGHTS -->
+            <div class="booking-card">
+                <div class="booking-header confirmed" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <span class="booking-title">🌲 Redwoods Eco Combo</span>
+                    <span class="booking-badge" style="background: white; color: #059669;">✅ Confirmé</span>
+                </div>
+                <div class="booking-content">
+                    <p class="booking-date">📅 Lundi 5 janvier 2026</p>
+                    <div class="booking-info">
+                        <p style="color: #059669; font-weight: 600;">✅ ECO COMBO CONFIRMÉ</p>
+                        <p><strong>✨ Treewalk + Nightlights + Glowworms</strong></p>
+                        <hr style="margin: 0.75rem 0; border: none; border-top: 1px solid #e5e7eb;">
+                        <p><strong>Jour:</strong> Passerelles suspendues parmi les séquoias (12m de haut)</p>
+                        <p><strong>Nuit:</strong> Même parcours illuminé + grotte aux glowworms</p>
+                        <p>⏱️ Durée: 30-40 min par expérience</p>
+                        <p>📍 Rotorua - Redwoods Forest</p>
+                    </div>
+                    <div class="booking-price">
+                        <strong>💰 Tarif payé:</strong><br>
+                        2 adultes Eco Combo: $168.00<br>
+                        1 enfant Eco Combo: $59.00<br>
+                        <strong style="color: #059669;">TOTAL: $227.00 NZD</strong><br>
+                        <small style="color: #059669;">✅ Payé par carte bancaire</small>
+                    </div>
+                    <div class="booking-warning" style="background: #fef3c7; border-left-color: #ea580c;">
+                        <strong>⚠️ PAS DE FAST PASS:</strong> Fast Pass sold out ou créneau 23h trop tard pour les enfants. Vous devrez faire la file normale le soir.<br>
+                        <strong>💡 Stratégie:</strong> Arriver TÔT vers 19h-19h30 pour minimiser l'attente (prévoir 30-45 min potentielles). Apporter snacks/eau pour Leyla et Ada.
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.treewalk.co.nz/" target="_blank" class="booking-btn primary">🌐 Site Redwoods</a>
+                        <a href="https://maps.google.com/?q=Redwoods+Treewalk+Rotorua" target="_blank" class="booking-btn secondary">📍 Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RÉVEILLON EIGHT @ CORDIS -->
+            <div class="booking-card">
+                <div class="booking-header confirmed" style="background: linear-gradient(135deg, #ec4899, #be185d);">
+                    <span class="booking-title">🎉 Réveillon - Eight @ Cordis</span>
+                    <span class="booking-badge" style="background: white; color: #be185d;">✅ Confirmé</span>
+                </div>
+                <div class="booking-content">
+                    <p class="booking-date">📅 Mercredi 31 décembre 2025</p>
+                    <div class="booking-info">
+                        <p style="color: #be185d; font-weight: 600;">✅ RÉSERVATION CONFIRMÉE</p>
+                        <p><strong>🍽️ Restaurant Eight - Cordis Hotel Auckland</strong></p>
+                        <hr style="margin: 0.75rem 0; border: none; border-top: 1px solid #e5e7eb;">
+                        <p>🌟 Restaurant gastronomique - menu spécial réveillon</p>
+                        <p>🕖 19h00 - Dîner de Nouvel An</p>
+                        <p>🎆 Proximité Sky Tower pour les feux d'artifice à minuit</p>
+                        <p>📍 83 Symonds Street, Auckland CBD</p>
+                    </div>
+                    <div class="booking-warning" style="background: #fce7f3; border-left-color: #ec4899;">
+                        <strong>✨ SOIRÉE SPÉCIALE:</strong> Après le dîner, rejoindre Victoria Park ou Viaduct Harbour pour les feux d'artifice de la Sky Tower à 23h30-minuit. Ambiance festive garantie!
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.cordishotels.com/en/auckland/restaurants-and-bars/eight" target="_blank" class="booking-btn primary">🌐 Site Eight</a>
+                        <a href="tel:+6493793919" class="booking-btn secondary">📞 +64 9 379 3919</a>
+                        <a href="https://maps.google.com/?q=Cordis+Hotel+Auckland" target="_blank" class="booking-btn secondary">📍 Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RAINBOW'S END -->
+            <div class="booking-card">
+                <div class="booking-header recommended">
+                    <span class="booking-title">🎢 Rainbow's End</span>
+                    <span class="booking-badge">🟠 Recommandé</span>
+                </div>
+                <div class="booking-content">
+                    <p class="booking-date">📅 Jeudi 8 janvier 2026</p>
+                    <div class="booking-info">
+                        <p>🎡 Parc d'attractions - Auckland</p>
+                        <p>🎠 Attractions pour tous les âges</p>
+                        <p>🕐 Horaires: 10h-17h (vacances)</p>
+                        <p>📍 Manukau, Auckland</p>
+                    </div>
+                    <div class="booking-price">
+                        <strong>💰 Vérifier tarifs famille sur le site</strong><br>
+                        <small>Différents pass selon les attractions souhaitées</small>
+                    </div>
+                    <div class="booking-warning">
+                        <strong>⚠️ Important:</strong> Capacité limitée par session. Janvier = vacances scolaires NZ = TRÈS fréquenté. Réservez à l'avance!
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.rainbowsend.co.nz/" target="_blank" class="booking-btn primary">🌐 Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SKYLINE LUGE -->
+            <div class="booking-card">
+                <div class="booking-header optional">
+                    <span class="booking-title">🛷 Skyline Luge Rotorua</span>
+                    <span class="booking-badge">🟢 Pas nécessaire</span>
+                </div>
+                <div class="booking-content">
+                    <p class="booking-date">📅 Lundi 5 janvier 2026</p>
+                    <div class="booking-info">
+                        <p>🚡 Gondola + pistes de Luge</p>
+                        <p>🎿 Activité fun pour toute la famille</p>
+                        <p>📍 Rotorua - Mt Ngongotaha</p>
+                    </div>
+                    <div class="booking-price">
+                        <strong>✅ Pas de réservation obligatoire!</strong><br>
+                        Achat sur place ou en ligne<br>
+                        <small>Billets online valides uniquement le jour choisi</small>
+                    </div>
+                    <div class="booking-warning" style="background: #d1fae5; border-color: #16a34a;">
+                        <strong>👍 Bonne nouvelle:</strong> Vous pouvez acheter vos billets sur place sans réservation préalable.
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.skyline.co.nz/en/rotorua/" target="_blank" class="booking-btn secondary">🌐 Voir tarifs</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POLYNESIAN SPA (optionnel) -->
+            <div class="booking-card">
+                <div class="booking-header optional">
+                    <span class="booking-title">♨️ Polynesian Spa</span>
+                    <span class="booking-badge">🟢 Optionnel</span>
+                </div>
+                <div class="booking-content">
+                    <p class="booking-date">📅 Dimanche 4 janvier 2026 (soir suggéré)</p>
+                    <div class="booking-info">
+                        <p>🛁 Sources thermales naturelles</p>
+                        <p>💆 Plusieurs bassins et options spa</p>
+                        <p>📍 Rotorua Lakefront</p>
+                    </div>
+                    <div class="booking-price">
+                        <strong>💰 Tarifs variables selon bassins</strong><br>
+                        <small>Family pools disponibles</small>
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.polynesianspa.co.nz/" target="_blank" class="booking-btn secondary">🌐 Voir options</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="hotels">
+        <h2 class="section-title">🏨 Hébergements</h2>
+        <div class="hotels-grid">
+            <div class="hotel-card">
+                <h3 class="hotel-name">Nesuto St Martins Apartment Hotel</h3>
+                <p class="hotel-dates">📅 27 déc → 2 janv (6 nuits)</p>
+                <div class="hotel-details">
+                    <p>📍 6-12 St Martins Lane, Auckland</p>
+                    <p>🛏️ Appartement 2 chambres (Plus)</p>
+                    <p>📋 Réf: <strong>EXP-2316014481</strong></p>
+                    <p>⏰ Check-in: 15h00 | Check-out: 10h00</p>
+                    <p>💰 Dépôt: 250 NZD</p>
+                    <p>📞 +64 9 929 2000</p>
+                    <p>✅ Wi-Fi, Cuisine, Clim, Piscine</p>
+                    <p style="color: #10b981; font-weight: 600;">🅿️ Parking couvert réservé confirmé</p>
+                </div>
+                <a href="https://maps.google.com/?q=Nesuto+St+Martins+Auckland" target="_blank" class="activity-link">📍 Voir sur Maps</a>
+            </div>
+
+            <div class="hotel-card">
+                <h3 class="hotel-name">Arawa Park Hotel</h3>
+                <p class="hotel-dates">📅 2 janv → 6 janv (4 nuits)</p>
+                <div class="hotel-details">
+                    <p>📍 272 Fenton St, Rotorua</p>
+                    <p>🛏️ Chambre Deluxe, 2 grands lits</p>
+                    <p>📋 Réf: <strong>EXP-2314737139</strong></p>
+                    <p>⏰ Check-in: 15h00 | Check-out: 10h00</p>
+                    <p>💰 Dépôt: 100 NZD/nuit (espèces)</p>
+                    <p>📞 +64 7 349-0099</p>
+                    <p>✅ <strong>Petit déj INCLUS</strong>, Wi-Fi, Parking gratuit</p>
+                </div>
+                <a href="https://maps.google.com/?q=Arawa+Park+Hotel+Rotorua" target="_blank" class="activity-link">📍 Voir sur Maps</a>
+            </div>
+
+            <div class="hotel-card">
+                <h3 class="hotel-name">Wairakei Resort Taupo</h3>
+                <p class="hotel-dates">📅 6 janv → 7 janv (1 nuit)</p>
+                <div class="hotel-details">
+                    <p>📍 640 Wairakei Road, Wairakei</p>
+                    <p>🛏️ Chambre Standard, 2 lits doubles</p>
+                    <p>📋 Réf: <strong>C493AA50512</strong></p>
+                    <p>⏰ Check-in: 15h00 | Check-out: 10h00</p>
+                    <p>📞 +64 7 3748021</p>
+                    <p>✅ <strong>Petit déj INCLUS</strong>, Wi-Fi, Parking gratuit, Aire de jeux</p>
+                </div>
+                <a href="https://maps.google.com/?q=Wairakei+Resort+Taupo" target="_blank" class="activity-link">📍 Voir sur Maps</a>
+            </div>
+
+            <div class="hotel-card">
+                <h3 class="hotel-name">SkyCity Hotel</h3>
+                <p class="hotel-dates">📅 7 janv → 9 janv (2 nuits)</p>
+                <div class="hotel-details">
+                    <p>📍 Corner Victoria & Federal Streets, Auckland</p>
+                    <p>🛏️ Premium Twin Room</p>
+                    <p>📋 Réf: <strong>283-2642134</strong></p>
+                    <p>⏰ Check-in: 15h00 | Check-out: 11h00</p>
+                    <p>📞 +64 9 3636000</p>
+                    <p>✅ Wi-Fi, Spa, Au pied Sky Tower</p>
+                    <p style="color: #10b981; font-weight: 600;">🅿️ Valet Parking utilisé (arrivée tardive)</p>
+                    <p style="color: #ea580c; font-weight: 600;">⏰ Arrivée tardive prévenue: ~20h depuis Glowworm Caves</p>
+                </div>
+                <a href="https://maps.google.com/?q=SkyCity+Hotel+Auckland" target="_blank" class="activity-link">📍 Voir sur Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="transport">
+        <h2 class="section-title">🚗 Transport</h2>
+        <div class="quick-info">
+            <div class="info-card">
+                <h3>✈️ Vols Air New Zealand</h3>
+                <p><strong>Réf: KEU2HH</strong></p>
+                <p>📞 Tahiti: +689 40 540 747</p>
+                <p>📞 NZ: 0800 737 000</p>
+                <p>Bagages: 1×7kg cabine + 1×23kg soute / pers</p>
+            </div>
+            <div class="info-card">
+                <h3>🚗 Location Ezi Car Rental</h3>
+                <p><strong>Réf: R1KXSL</strong></p>
+                <p>N° voyage: 73280542931685</p>
+                <p>Véhicule: Toyota RAV4 AWD</p>
+                <p>📍 Comptoir dans le terminal Auckland</p>
+                <p>⏰ Ouvert: 06h30 - 22h30</p>
+                <p>💰 Dépôt: 400 NZD</p>
+                <p>⛽ Plein/Plein</p>
+                <p>🛡️ Franchise: 7,000 NZD</p>
+            </div>
+            <div class="info-card">
+                <h3>📝 Documents requis (voiture)</h3>
+                <p>✅ Permis de conduire original</p>
+                <p>✅ Traduction ou permis international</p>
+                <p>✅ Passeport</p>
+                <p>✅ Carte bancaire (nom du conducteur)</p>
+                <p>⚠️ Photos/photocopies NON acceptées</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="restos">
+        <h2 class="section-title">🍽️ Restaurants réservés / recommandés</h2>
+        <div class="quick-info">
+            <div class="info-card" style="border-left-color: #8b5cf6;">
+                <h3>🎉 Eight at Cordis</h3>
+                <p><strong>31 décembre - Réveillon</strong></p>
+                <p>📍 Cordis Hotel, Auckland</p>
+                <p>Restaurant gastronomique</p>
+                <a href="https://www.cordishotels.com/en/auckland/restaurants-and-bars/eight" target="_blank" class="activity-link">🌐 Site</a>
+            </div>
+            <div class="info-card">
+                <h3>🍜 Fortuna Buffet</h3>
+                <p><strong>7 janvier - Dîner</strong></p>
+                <p>📍 SkyCity Auckland</p>
+                <p>Buffet asiatique varié</p>
+                <a href="https://www.skycityauckland.co.nz/restaurants/fortuna/" target="_blank" class="activity-link">🌐 Site</a>
+            </div>
+            <div class="info-card">
+                <h3>🥩 Smokeland BBQ</h3>
+                <p><strong>8 janvier - Dîner</strong></p>
+                <p>📍 Auckland</p>
+                <p>BBQ américain, viandes fumées</p>
+            </div>
+            <div class="info-card">
+                <h3>🥢 Autres options Auckland</h3>
+                <p>• Dim Sum - Chinatown CBD</p>
+                <p>• One Tree Buffet</p>
+                <p>• Slow cooked Henderson</p>
+                <p>• Fish & chips Mission Bay</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NOTES & TO-DO ========== -->
+    <section id="notes">
+        <h2>📝 Notes & To-Do List</h2>
+        <p style="color: #6b7280; margin-bottom: 1.5rem;">Tout ce qu'il faut penser à faire avant, pendant et après le voyage</p>
+        
+        <div class="notes-grid">
+            <!-- Réservations confirmées -->
+            <div class="note-card">
+                <div class="note-header" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #065f46;">✅ Réservations confirmées</div>
+                <div class="note-content">
+                    <ul class="note-list">
+                        <li class="done">✅ Réveillon Eight @ Cordis - 31 déc 2025</li>
+                        <li class="done">✅ Te Puia DOUBLE (Jour+Nuit) - 3 janv 2026</li>
+                        <li class="done">✅ Redwoods Eco Combo - 5 janv 2026</li>
+                        <li class="done">✅ Waitomo Caves Combo - 7 janv 2026</li>
+                    </ul>
+                    
+                    <p class="note-subheader">📋 Détails réservations</p>
+                    
+                    <p style="font-weight: 600; margin-top: 1rem; color: #ec4899;">🎉 Réveillon - Eight @ Cordis</p>
+                    <ul class="note-list" style="font-size: 0.9rem;">
+                        <li>Date: Mercredi 31 décembre 2025</li>
+                        <li>Heure: 19h00</li>
+                        <li>Restaurant gastronomique Cordis Hotel</li>
+                    </ul>
+                    
+                    <p style="font-weight: 600; margin-top: 1rem; color: #ea580c;">♨️ Te Puia - JOURNÉE COMPLÈTE</p>
+                    <ul class="note-list" style="font-size: 0.9rem;">
+                        <li>Date: Samedi 3 janvier 2026</li>
+                        <li><strong>Matin 9h-11h:</strong> Te Rā + Haka Combo</li>
+                        <li>→ 2A ($135 x2) + 1C ($72.50) + 1 bébé gratuit = $342.50</li>
+                        <li><strong>Soir:</strong> Dinner + Mārama Light Trail</li>
+                        <li>→ 2A ($140 x2) + 1C ($95) + 1 bébé gratuit = $375.00</li>
+                        <li>Total: $717.50 NZD (taxes incluses)</li>
+                        <li>Ref: CCDXBWJX4 | Order: 55000</li>
+                        <li>⚠️ Site cashless - paiement carte uniquement</li>
+                    </ul>
+                    
+                    <p style="font-weight: 600; margin-top: 1rem; color: #16a34a;">🌲 Redwoods Eco Combo</p>
+                    <ul class="note-list" style="font-size: 0.9rem;">
+                        <li>Date: Lundi 5 janvier 2026</li>
+                        <li>Treewalk + Nightlights + Glowworms</li>
+                        <li>2A ($84 x2) + 1C ($59) = $227.00 NZD</li>
+                        <li>⚠️ PAS de fast pass (sold out/23h trop tard)</li>
+                        <li>💡 Arriver TÔT vers 19h pour minimiser l'attente</li>
+                        <li>Prévoir snacks/eau pour les enfants (30-45 min file)</li>
+                    </ul>
+                    
+                    <p style="font-weight: 600; margin-top: 1rem; color: #0284c7;">✨ Waitomo Caves Combo</p>
+                    <ul class="note-list" style="font-size: 0.9rem;">
+                        <li>Date: Mercredi 7 janvier 2026</li>
+                        <li>11:30 - Ruakuri Cave (1h30)</li>
+                        <li>15:50 - Glowworm Caves (45 min)</li>
+                        <li>Family Pass 2A+2C: $419.22 NZD</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- À faire sur place -->
+            <div class="note-card">
+                <div class="note-header todo">📋 À faire sur place</div>
+                <div class="note-content">
+                    <ul class="note-list">
+                        <li class="priority">Prendre RDV à Kiwi Bank pour clôturer mon compte étudiant</li>
+                        <li>Vérifier si courrier en attente à mon ancienne adresse</li>
+                    </ul>
+                    <p class="note-add">+ Ajouter d'autres tâches...</p>
+                </div>
+            </div>
+
+            <!-- À faire AVANT le départ -->
+            <div class="note-card">
+                <div class="note-header misc">✈️ Avant le départ</div>
+                <div class="note-content">
+                    <ul class="note-list">
+                        <li class="priority">Créditer compte Revolut</li>
+                        <li class="priority">Créditer compte Deblock</li>
+                        <li>Vérifier validité passeports (toute la famille)</li>
+                        <li>Demander NZeTA si pas encore fait</li>
+                        <li>Récupérer SIM FREE internationale (veille du départ)</li>
+                        <li>Imprimer documents essentiels</li>
+                    </ul>
+                    <p class="note-add">+ Ajouter d'autres tâches...</p>
+                </div>
+            </div>
+
+            <!-- Activités à explorer -->
+            <div class="note-card">
+                <div class="note-header activities">🎯 Activités à explorer</div>
+                <div class="note-content">
+                    <p class="note-subheader">Auckland</p>
+                    <ul class="note-list">
+                        <li>Rangitoto Island (volcan, randonnée)</li>
+                        <li>Devonport (ferry + village pittoresque)</li>
+                        <li>Piha Beach (côte ouest, surf)</li>
+                    </ul>
+                    <p class="note-subheader">Rotorua</p>
+                    <ul class="note-list">
+                        <li>Wai-O-Tapu (piscines colorées)</li>
+                        <li>Zorbing (boules géantes)</li>
+                        <li>Hell's Gate (boue bouillante)</li>
+                    </ul>
+                    <p class="note-subheader">Suggestions des proches</p>
+                    <ul class="note-list">
+                        <li style="color: #9ca3af; font-style: italic;">En attente de suggestions...</li>
+                    </ul>
+                    <p class="note-add">+ Ajouter des idées...</p>
+                </div>
+            </div>
+
+            <!-- Restaurants à tester -->
+            <div class="note-card">
+                <div class="note-header restaurants">🍽️ Restaurants à tester</div>
+                <div class="note-content">
+                    <p class="note-subheader">Recommandations</p>
+                    <ul class="note-list">
+                        <li style="color: #9ca3af; font-style: italic;">En attente de suggestions...</li>
+                    </ul>
+                    <p class="note-subheader">Trouvés en ligne</p>
+                    <ul class="note-list">
+                        <li style="color: #9ca3af; font-style: italic;">À compléter...</li>
+                    </ul>
+                    <p class="note-add">+ Ajouter des adresses...</p>
+                </div>
+            </div>
+
+            <!-- Shopping Enfants -->
+            <div class="note-card">
+                <div class="note-header shopping-kids">👧 Shopping Enfants</div>
+                <div class="note-content">
+                    <p class="note-subheader">Leyla</p>
+                    <ul class="note-list">
+                        <li style="color: #9ca3af; font-style: italic;">Liste à compléter...</li>
+                    </ul>
+                    <p class="note-subheader">Ada</p>
+                    <ul class="note-list">
+                        <li style="color: #9ca3af; font-style: italic;">Liste à compléter...</li>
+                    </ul>
+                    <p class="note-subheader">Idées générales</p>
+                    <ul class="note-list">
+                        <li>Vêtements été/plage</li>
+                        <li>Jouets éducatifs NZ</li>
+                        <li>Souvenirs peluches kiwi</li>
+                    </ul>
+                    <p class="note-add">+ Ajouter des articles...</p>
+                </div>
+            </div>
+
+            <!-- Shopping Perso -->
+            <div class="note-card">
+                <div class="note-header shopping-perso">🛍️ Shopping Perso</div>
+                <div class="note-content">
+                    <p class="note-subheader">À comparer (prix NZ vs Tahiti)</p>
+                    <ul class="note-list">
+                        <li class="priority">Écouteurs (AirPods? Sony? JBL?)</li>
+                        <li class="priority">Linge de sport / vêtements fitness</li>
+                    </ul>
+                    <p class="note-subheader">Électronique</p>
+                    <ul class="note-list">
+                        <li style="color: #9ca3af; font-style: italic;">À compléter...</li>
+                    </ul>
+                    <p class="note-subheader">Autres</p>
+                    <ul class="note-list">
+                        <li style="color: #9ca3af; font-style: italic;">À compléter...</li>
+                    </ul>
+                    <p class="note-add">+ Ajouter des articles...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tip pour les magasins -->
+        <div class="tip-box" style="margin-top: 2rem;">
+            <strong>🏬 Bons plans shopping Auckland :</strong><br>
+            • <strong>Dress Smart Onehunga</strong> – Outlet mall (marques à prix réduits)<br>
+            • <strong>Sylvia Park</strong> – Plus grand centre commercial de NZ<br>
+            • <strong>Commercial Bay</strong> – Shopping premium downtown<br>
+            • <strong>Costco Westgate</strong> – Si besoin de grandes quantités<br>
+            • <strong>The Warehouse</strong> – Genre de "Carrefour" local, bon pour basiques
+        </div>
+    </section>
+
+    <section id="urgences">
+        <div class="emergency-section">
+            <h2>🚨 Contacts d'urgence</h2>
+            <div class="emergency-grid">
+                <div class="emergency-item">
+                    <h4>📞 Urgences NZ</h4>
+                    <p><a href="tel:111">111</a> (Police, Ambulance, Pompiers)</p>
+                </div>
+                <div class="emergency-item">
+                    <h4>🛡️ Assurance Mutuaide</h4>
+                    <p><a href="tel:+33148826256">+33 1 48 82 62 56</a></p>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c2afa7a6aba1a3ae82afb7b6b7a3aba6a7eca4b0">[email&#160;protected]</a></p>
+                    <p>N° contrat: 6934 / PO-TH-001731</p>
+                </div>
+                <div class="emergency-item">
+                    <h4>🏢 Le Bon Plan Tahiti</h4>
+                    <p><a href="tel:+68989450501">+689 89 45 05 01</a></p>
+                    <p>WhatsApp disponible</p>
+                    <p>Mariana Papara</p>
+                </div>
+                <div class="emergency-item">
+                    <h4>🇫🇷 Ambassade France NZ</h4>
+                    <p>Wellington: <a href="tel:+6444025218">+64 4 402 5218</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>🥝 Voyage en Nouvelle-Zélande - Famille Vairaaroa</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">26 décembre 2025 → 10 janvier 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Document v2 - Mis à jour le 11/12/2025 - Bon voyage! 🌏</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+  

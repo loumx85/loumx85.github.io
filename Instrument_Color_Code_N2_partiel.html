@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Color Code — Niveau 2</title>
+<style>
+  :root{
+    --ink:#1E2A38; --ink2:#28384A; --muted:#5B6B7B; --body:#2B3641;
+    --card:#F4F6F8; --line:#E2E8F0; --bg:#FFFFFF;
+    --rouge:#C0392B; --bleu:#1F6FB2; --vert:#27AE60; --jaune:#E8A800; --gold:#E8A800;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Segoe UI",Calibri,system-ui,sans-serif;color:var(--body);background:#EEF1F4;line-height:1.5;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 18px 90px;}
+  header{background:var(--ink);color:#fff;padding:34px 0 30px;}
+  header .wrap{padding-bottom:0;}
+  .kicker{color:#9FB3C8;font-size:13px;letter-spacing:2px;font-weight:700;text-transform:uppercase;margin:0 0 8px;}
+  h1{font-family:Cambria,Georgia,serif;font-size:30px;margin:0 0 6px;font-weight:700;}
+  .subtitle{color:var(--jaune);font-style:italic;font-size:18px;font-family:Cambria,Georgia,serif;margin:0 0 16px;}
+  .dots{display:flex;gap:8px;margin-top:6px;}
+  .dots span{width:13px;height:13px;border-radius:50%;}
+
+  .partbar{display:flex;align-items:center;gap:12px;margin:30px 0 4px;}
+  .partnum{width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-family:Cambria,serif;font-weight:700;
+           display:flex;align-items:center;justify-content:center;font-size:18px;flex:none;}
+  .parttitle{font-family:Cambria,Georgia,serif;font-size:23px;color:var(--ink);font-weight:700;}
+  .section-sub{color:var(--muted);font-size:14px;margin:0 0 16px 46px;}
+
+  .qcard{background:#fff;border-radius:12px;padding:16px 18px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .qprompt{font-weight:600;color:var(--ink);margin:0 0 10px;font-size:15.5px;}
+  .qprompt .qn{color:var(--muted);font-weight:700;margin-right:6px;}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;color:var(--body);
+       border-radius:9px;padding:9px 12px;margin:6px 0;font-size:14px;cursor:pointer;transition:.12s;font-family:inherit;}
+  .opt:hover{border-color:#aab6c2;}
+  .opt.on{color:#fff;font-weight:600;border-color:transparent;}
+  .opt.on.rouge{background:var(--rouge);} .opt.on.bleu{background:var(--bleu);}
+  .opt.on.vert{background:var(--vert);} .opt.on.jaune{background:var(--jaune);}
+  .progress{font-size:13px;color:var(--muted);margin:6px 0 0 46px;font-weight:600;}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .glabel{font-family:Cambria,serif;font-weight:700;color:var(--ink);margin:18px 0 8px;font-size:16px;}
+  .col{background:#fff;border-radius:12px;padding:14px 12px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .col h3{margin:0 0 2px;font-family:Cambria,serif;font-size:18px;font-weight:700;}
+  .col .moteur{font-size:12px;color:var(--muted);margin:0 0 12px;font-style:italic;}
+  .chip{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;color:var(--body);
+        border-radius:9px;padding:8px 10px;margin:6px 0;font-size:13.5px;cursor:pointer;transition:.12s;font-family:inherit;}
+  .chip:hover{border-color:#aab6c2;}
+  .chip.on{color:#fff;font-weight:600;border-color:transparent;}
+  .col.rouge .chip.on{background:var(--rouge);} .col.rouge h3{color:var(--rouge);}
+  .col.bleu  .chip.on{background:var(--bleu);}  .col.bleu h3{color:var(--bleu);}
+  .col.vert  .chip.on{background:var(--vert);}  .col.vert h3{color:var(--vert);}
+  .col.jaune .chip.on{background:var(--jaune);} .col.jaune h3{color:#B98600;}
+
+  .results{background:#fff;border-radius:14px;padding:24px;margin:34px 0 0;box-shadow:0 4px 16px rgba(0,0,0,.08);}
+  .results h2{font-family:Cambria,serif;color:var(--ink);margin:0 0 6px;font-size:24px;}
+  .results .blk-title{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:20px 0 8px;}
+  .res-flex{display:flex;gap:30px;flex-wrap:wrap;align-items:center;}
+  .pie-box{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  #pie{width:190px;height:190px;border-radius:50%;background:conic-gradient(var(--line) 0 100%);}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;font-size:13px;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
+  .readout{flex:1;min-width:300px;}
+  .core-line{font-size:18px;color:var(--ink);}
+  .pill{display:inline-block;padding:2px 11px;border-radius:20px;color:#fff;font-weight:700;font-size:15px;}
+  .lockmsg{font-size:13px;color:var(--muted);font-style:italic;margin-top:4px;}
+  .stat{padding:11px 0;border-bottom:1px solid var(--line);}
+  .stat:last-child{border-bottom:none;}
+  .stat .lbl{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  .stat .val{font-size:16px;color:var(--ink);margin-top:2px;}
+  .stat .val b{font-size:18px;}
+  .hint{font-size:12.5px;color:var(--muted);margin-top:2px;font-style:italic;}
+  .gapbox{background:#FFF7E0;border:1.5px solid var(--jaune);border-radius:12px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .gapbox b{color:var(--ink);}
+
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;align-items:center;}
+  button.act{border:none;border-radius:10px;padding:12px 20px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}
+  .btn-primary{background:var(--gold);color:#fff;}
+  .btn-primary:hover{background:#cf9700;}
+  .btn-primary:disabled{background:#d8cba0;cursor:not-allowed;}
+  .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);}
+  .copied{color:var(--vert);font-weight:700;font-size:14px;display:none;}
+  .note{font-size:12.5px;color:var(--muted);margin-top:26px;text-align:center;}
+  .empty{color:var(--muted);font-style:italic;}
+
+  @media(max-width:760px){ .grid{grid-template-columns:repeat(2,1fr);} h1{font-size:24px;} }
+  @media(max-width:460px){ .grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="kicker">Cycle Connaissance de Soi · Atelier 2</p>
+    <h1>Profil Color Code — Niveau 2</h1>
+    <p class="subtitle">Mon noyau, et où j'en suis sur mon chemin</p>
+    <div class="dots"><span style="background:var(--rouge)"></span><span style="background:var(--bleu)"></span><span style="background:var(--vert)"></span><span style="background:var(--jaune)"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="partbar"><div class="partnum">A</div><div class="parttitle">Mon noyau — à sceller</div></div>
+  <p class="section-sub">15 situations. Pour chacune, choisis <b>la seule</b> réponse la plus vraie « la plupart du temps », depuis tes plus anciens souvenirs. Ça fixe ta couleur dominante — ton point de départ.</p>
+  <div id="situations"></div>
+  <p class="progress" id="progressA">0 / 15 répondu</p>
+
+  <div class="partbar"><div class="partnum">B</div><div class="parttitle">Ma photo actuelle</div></div>
+  <p class="section-sub">Coche tous les mots qui te décrivent aujourd'hui, dans les 4 couleurs. Ici on ne cherche plus ta couleur : on regarde ce que tu as déjà emprunté et ce qui reste à travailler.</p>
+
+  <p class="glabel">Mes forces (mes dons)</p>
+  <div class="grid" id="grid-forces"></div>
+  <p class="glabel">Mes limites (ma face d'ombre)</p>
+  <div class="grid" id="grid-limites"></div>
+
+  <div class="results" id="results">
+    <h2>Ma boussole</h2>
+
+    <div class="blk-title">① Mon noyau (figé)</div>
+    <div class="res-flex">
+      <div class="pie-box">
+        <div id="pie"></div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div class="readout" id="coreout">
+        <p class="empty">Réponds aux 15 situations pour révéler et figer ton noyau.</p>
+      </div>
+    </div>
+
+    <div class="blk-title">② Mon évolution (d'après mes mots)</div>
+    <div id="evoout"><p class="empty">Coche des mots en Partie B.</p></div>
+
+    <div id="gapout"></div>
+
+    <div class="actions">
+      <button class="act btn-primary" id="copyBtn" disabled>📋 Copier pour l'IA</button>
+      <button class="act btn-ghost" id="resetBtn">↺ Tout effacer</button>
+      <span class="copied" id="copied">✓ Copié — colle-le dans l'IA</span>
+    </div>
+  </div>
+
+  <p class="note">Partie A adaptée du test situationnel de Dr. Taylor Hartman (<i>The People Code</i>) · Partie B adaptée de <i>The Character Code</i> — Vert remplace le Blanc.<br>
+  Le noyau (A) est figé. L'IA ne le remet jamais en question : elle travaille seulement ton évolution à partir de lui. · Formation GDC · M. Vairaaroa</p>
+
+</div>
+
+<script>
+const COLORS=[
+  {key:"rouge",name:"Rouge",moteur:"Moteur : le Pouvoir",hex:"#C0392B"},
+  {key:"bleu", name:"Bleu", moteur:"Moteur : la Connexion",hex:"#1F6FB2"},
+  {key:"vert", name:"Vert", moteur:"Moteur : la Paix",hex:"#27AE60"},
+  {key:"jaune",name:"Jaune",moteur:"Moteur : le Plaisir",hex:"#E8A800"},
+];
+const ORDER=["rouge","bleu","vert","jaune"];
+
+const SITUATIONS=[
+ {q:"Un employeur m'embaucherait surtout parce que je suis :",
+  o:["Moteur, direct, je délègue.","Méthodique, précis, fiable.","Patient, adaptable, diplomate.","Enjoué, vivant, décontracté."]},
+ {q:"Ma vie a le plus de sens quand elle est :",
+  o:["Orientée résultats et productive.","Pleine de gens, de liens et de sens.","Sans pression ni stress.","Légère, joyeuse, optimiste."]},
+ {q:"Enfant, j'étais :",
+  o:["Têtu, vif, et/ou combatif.","Sage, attentionné, et/ou sujet à la tristesse.","Calme, tranquille, et/ou timide.","Bavard, joyeux, et/ou joueur."]},
+ {q:"Adulte, je suis :",
+  o:["Affirmé, déterminé, et/ou autoritaire.","Responsable, honnête, et/ou rancunier.","Accommodant, content, et/ou peu motivé.","Charismatique, positif, et/ou parfois excessif."]},
+ {q:"Dans un désaccord avec un proche, je suis surtout :",
+  o:["Buté sur les faits, je défends ma position.","Soucieux des sentiments et des principes.","Têtu en silence, mal à l'aise, confus.","Expressif, mal à l'aise, prêt à composer."]},
+ {q:"Si un proche a un problème, je suis :",
+  o:["Protecteur, débrouillard, je propose des solutions.","Concerné, empathique, loyal quoi qu'il arrive.","Soutenant, patient, bon auditeur.","Sans jugement, optimiste, je dédramatise."]},
+ {q:"Quand je prends une décision, je suis :",
+  o:["Affirmé, clair, logique.","Réfléchi, précis, prudent.","Indécis, hésitant, réticent.","Impulsif, changeant, inconstant."]},
+ {q:"Quand j'échoue, je me sens :",
+  o:["Critique envers moi en silence, mais défensif à voix haute.","Coupable, dur envers moi, je rumine.","Troublé et inquiet, mais je le garde pour moi.","Gêné et nerveux, je cherche à m'échapper."]},
+ {q:"Si quelqu'un me trahit :",
+  o:["Je m'énerve et cherche vite à rééquilibrer.","Je suis profondément blessé, j'ai du mal à pardonner.","Blessé en silence, je m'éloigne et/ou évite la personne.","J'évite le conflit, je relativise, je vais vers d'autres."]},
+ {q:"Le travail, pour moi, c'est :",
+  o:["La façon la plus productive d'occuper son temps.","Une activité saine, à bien faire, avant de jouer.","Positif tant que j'y prends plaisir, sans pression.","Un mal nécessaire, bien moins attirant que le jeu."]},
+ {q:"En société, je suis le plus souvent :",
+  o:["Craint par les autres.","Admiré par les autres.","Protégé par les autres.","Envié par les autres."]},
+ {q:"Dans une relation, je tiens surtout à être :",
+  o:["Approuvé et avoir raison.","Compris, apprécié, proche.","Respecté, dans la tolérance et la paix.","Valorisé, m'amuser, me sentir libre."]},
+ {q:"Pour me sentir vivant, je recherche :",
+  o:["L'aventure, le leadership, l'action.","La sécurité, la créativité, le sens.","L'acceptation et la sûreté.","L'excitation, le plaisir, la compagnie des autres."]},
+ {q:"Comme parent (ou référent d'un jeune), je suis :",
+  o:["Exigeant, vif, intransigeant.","Concerné, sensible, critique.","Permissif, influençable, vite débordé.","Joueur, décontracté, parfois peu rigoureux."]},
+ {q:"Quand je me sens menacé dans une relation proche, je :",
+  o:["Réplique avec des faits et de la colère.","Suis blessé, je peux ruminer une revanche.","Deviens silencieux, en retrait, puis j'explose plus tard.","Prends mes distances et évite le conflit."]},
+];
+const answersA=new Array(SITUATIONS.length).fill(null);
+
+const WORDS={
+ rouge:{forces:["décidé","productif","responsable","proactif","affirmé","efficace","logique","fonceur","confiant","organisé dans l'action"],
+        limites:["autoritaire","impatient","insensible","critique des autres","arrogant","dominateur","exigeant","intransigeant","brusque","peu à l'écoute"]},
+ bleu:{forces:["loyal","sincère","attentionné","fiable","à l'écoute","soigneux (qualité)","dévoué","réfléchi","intuitif","profond"],
+       limites:["perfectionniste","rancunier","anxieux","susceptible","lunatique","moralisateur","méfiant","jamais satisfait","trop sensible","dur envers lui-même"]},
+ vert:{forces:["patient","calme","tolérant","diplomate","adaptable","bon auditeur","gentil","posé","conciliant","clair (clarté)"],
+       limites:["indécis","fuit les conflits","passif","démotivé","timide","effacé","sans cap","têtu en silence","lent à s'engager","peu enthousiaste"]},
+ jaune:{forces:["optimiste","enthousiaste","spontané","sociable","joyeux","charismatique","positif","curieux","indulgent","enjoué"],
+        limites:["dispersé","peu fiable","indiscipliné","désorganisé","impulsif","inconstant","égocentrique","naïf","superficiel","évite les sujets sérieux"]},
+};
+const pickedB=new Set();
+
+const sitWrap=document.getElementById("situations");
+SITUATIONS.forEach((s,qi)=>{
+  const card=document.createElement("div"); card.className="qcard";
+  card.innerHTML=`<p class="qprompt"><span class="qn">${qi+1}.</span>${s.q}</p>`;
+  s.o.forEach((txt,oi)=>{
+    const b=document.createElement("button");
+    const colKey=ORDER[oi];
+    b.className="opt "+colKey; b.textContent=txt;
+    b.onclick=()=>{
+      [...card.querySelectorAll(".opt")].forEach(x=>x.classList.remove("on"));
+      b.classList.add("on"); answersA[qi]=colKey; compute();
+    };
+    card.appendChild(b);
+  });
+  sitWrap.appendChild(card);
+});
+
+function buildGrid(containerId,type){
+  const c=document.getElementById(containerId);
+  COLORS.forEach(col=>{
+    const div=document.createElement("div"); div.className="col "+col.key;
+    div.innerHTML=`<h3>${col.name}</h3><p class="moteur">${col.moteur}</p>`;
+    WORDS[col.key][type].forEach((word,i)=>{
+      const b=document.createElement("button"); b.className="chip"; b.textContent=word;
+      const id=col.key+"|"+type+"|"+i;
+      b.onclick=()=>{ if(pickedB.has(id)){pickedB.delete(id);b.classList.remove("on");} else {pickedB.add(id);b.classList.add("on");} compute(); };
+      div.appendChild(b);
+    });
+    c.appendChild(div);
+  });
+}
+buildGrid("grid-forces","forces");
+buildGrid("grid-limites","limites");
+
+function coreCounts(){ const r={rouge:0,bleu:0,vert:0,jaune:0}; answersA.forEach(a=>{if(a)r[a]++;}); return r; }
+function bCounts(){ const r={}; COLORS.forEach(c=>r[c.key]={forces:0,limites:0,total:0});
+  pickedB.forEach(id=>{const a=id.split("|"); r[a[0]][a[1]]++; r[a[0]].total++;}); return r; }
+function colObj(k){return COLORS.find(c=>c.key===k);}
+function pill(k){const c=colObj(k);return `<span class="pill" style="background:${c.hex}">${c.name}</span>`;}
+
+function compute(){
+  const cc=coreCounts();
+  const answered=answersA.filter(Boolean).length;
+  document.getElementById("progressA").textContent=`${answered} / ${SITUATIONS.length} répondu`;
+  const totalCore=ORDER.reduce((a,k)=>a+cc[k],0);
+  const pie=document.getElementById("pie"), legend=document.getElementById("legend"), coreout=document.getElementById("coreout");
+
+  let coreColor=null;
+  if(totalCore===0){
+    pie.style.background="conic-gradient(var(--line) 0 100%)"; legend.innerHTML="";
+    coreout.innerHTML='<p class="empty">Réponds aux situations pour révéler et figer ton noyau.</p>';
+  } else {
+    let acc=0,segs=[],leg="";
+    ORDER.forEach(k=>{ const pct=cc[k]/totalCore*100; const start=acc,end=acc+pct;acc=end;
+      segs.push(`${colObj(k).hex} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+      leg+=`<span><i style="background:${colObj(k).hex}"></i>${colObj(k).name} ${Math.round(pct)}%</span>`; });
+    pie.style.background=`conic-gradient(${segs.join(",")})`; legend.innerHTML=leg;
+    const sorted=[...ORDER].sort((a,b)=>cc[b]-cc[a]);
+    coreColor=sorted[0];
+    const domPct=Math.round(cc[coreColor]/totalCore*100), secPct=Math.round(cc[sorted[1]]/totalCore*100);
+    const lock = answered<SITUATIONS.length ? `<div class="lockmsg">Provisoire — réponds à tout pour figer le noyau.</div>` :
+      `<div class="lockmsg">Noyau figé. C'est ton point de départ, il ne bouge plus.</div>`;
+    coreout.innerHTML=`<div class="core-line">Couleur dominante : ${pill(coreColor)} &nbsp;<b style="font-size:22px;color:var(--ink)">${domPct}%</b><br>
+      <span style="color:var(--muted);font-size:15px">puis ${pill(sorted[1])} ${secPct}% · la moins présente : ${pill(sorted[3])}</span></div>${lock}`;
+  }
+
+  const bc=bCounts();
+  const totalB=COLORS.reduce((a,c)=>a+bc[c.key].total,0);
+  const evoout=document.getElementById("evoout"), gapout=document.getElementById("gapout");
+  if(totalB===0){
+    evoout.innerHTML='<p class="empty">Coche des mots en Partie B.</p>'; gapout.innerHTML="";
+  } else {
+    const refColor=coreColor;
+    let foreignLim=0,borrowed=0;
+    COLORS.forEach(c=>{ if(c.key!==refColor){ foreignLim+=bc[c.key].limites; borrowed+=bc[c.key].forces; } });
+    const empt=[...COLORS].sort((a,b)=>bc[a.key].total-bc[b.key].total)[0];
+    const totForces=COLORS.reduce((a,c)=>a+bc[c.key].forces,0);
+    const totLimites=COLORS.reduce((a,c)=>a+bc[c.key].limites,0);
+    const refTxt=refColor?`hors de ton noyau (${colObj(refColor).name})`:"";
+    evoout.innerHTML=`
+      <div class="stat"><div class="lbl">Forces déjà empruntées</div>
+        <div class="val"><b>${borrowed}</b> force${borrowed>1?"s":""} d'autres couleurs</div>
+        <div class="hint">Chaque force empruntée te rapproche de ta version accomplie (le papillon).</div></div>
+      <div class="stat"><div class="lbl">Limites à lâcher en priorité</div>
+        <div class="val"><b>${foreignLim}</b> limite${foreignLim>1?"s":""} ${refColor?refTxt:""}</div>
+        <div class="hint">On tolère mal une limite empruntée à une autre couleur. On nettoie celles-là d'abord.</div></div>
+      <div class="stat"><div class="lbl">Couleur à développer</div>
+        <div class="val">${pill(empt.key)}</div>
+        <div class="hint">La couleur la moins présente dans tes mots : souvent celle qu'on comprend le moins.</div></div>
+      <div class="stat"><div class="lbl">Équilibre global</div>
+        <div class="val">${totForces} force${totForces>1?"s":""} · ${totLimites} limite${totLimites>1?"s":""}</div></div>`;
+
+    if(refColor){
+      const bSorted=[...COLORS].sort((a,b)=>bc[b.key].total-bc[a.key].total);
+      const bDom=bSorted[0].key;
+      if(bc[bDom].total>0 && bDom!==refColor){
+        gapout.innerHTML=`<div class="gapbox">🦋 <b>Ton écart noyau ↔ photo actuelle.</b> Ton noyau est ${pill(refColor)}, mais c'est le ${pill(bDom)} qui ressort le plus dans tes mots d'aujourd'hui. Tu « joues » sans doute du ${colObj(bDom).name} par-dessus ton ${colObj(refColor).name}. Cette couche est <b>acquise</b> — donc modifiable. <i>C'est exactement ton terrain d'évolution.</i></div>`;
+      } else {
+        gapout.innerHTML=`<div class="gapbox">🦋 <b>Cohérence.</b> Ton noyau ${pill(refColor)} et ta photo actuelle pointent dans la même direction. Ton chemin : approfondir tes forces et oser en emprunter d'autres.</div>`;
+      }
+    } else gapout.innerHTML="";
+  }
+
+  document.getElementById("copyBtn").disabled=(totalCore===0);
+}
+
+function buildSummary(){
+  const cc=coreCounts(); const totalCore=ORDER.reduce((a,k)=>a+cc[k],0);
+  if(totalCore===0) return "Je n'ai pas encore répondu aux situations.";
+  const sorted=[...ORDER].sort((a,b)=>cc[b]-cc[a]); const core=sorted[0];
+  const pieTxt=ORDER.map(k=>`${colObj(k).name} ${Math.round(cc[k]/totalCore*100)}%`).join(", ");
+  const bc=bCounts(); const totalB=COLORS.reduce((a,c)=>a+bc[c.key].total,0);
+  let lines=[];
+  lines.push("=== MON PROFIL COLOR CODE N2 ===");
+  lines.push(`NOYAU (figé, choix forcé) : ${colObj(core).name}.`);
+  lines.push(`Répartition du noyau : ${pieTxt}.`);
+  if(totalB>0){
+    let foreignLim=0,borrowed=0;
+    COLORS.forEach(c=>{ if(c.key!==core){foreignLim+=bc[c.key].limites;borrowed+=bc[c.key].forces;} });
+    const empt=[...COLORS].sort((a,b)=>bc[a.key].total-bc[b.key].total)[0];
+    const lab=[];
+    COLORS.forEach(c=>{
+      const f=[],l=[];
+      pickedB.forEach(id=>{const a=id.split("|"); if(a[0]===c.key){(a[1]==="forces"?f:l).push(WORDS[c.key][a[1]][+a[2]]);}});
+      lab.push(`  ${c.name} -> forces: ${f.join(", ")||"—"} | limites: ${l.join(", ")||"—"}`);
+    });
+    lines.push("");
+    lines.push("PHOTO ACTUELLE (mots cochés) :");
+    lines.push(...lab);
+    lines.push(`Forces empruntées (hors noyau) : ${borrowed}. Limites étrangères (hors noyau) : ${foreignLim}. Couleur la moins présente : ${empt.name}.`);
+  }
+  lines.push("");
+  lines.push(`CONSIGNE IMPORTANTE : mon noyau est ${colObj(core).name}, il est figé — ne le remets jamais en question, ne le recalcule pas. Aide-moi UNIQUEMENT à évoluer à partir de lui, en hypothèses (jamais en verdict), une question à la fois.`);
+  return lines.join("\n");
+}
+
+document.getElementById("copyBtn").onclick=async()=>{
+  const txt=buildSummary();
+  try{await navigator.clipboard.writeText(txt);}
+  catch(e){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);}
+  const c=document.getElementById("copied");c.style.display="inline";setTimeout(()=>c.style.display="none",2600);
+};
+document.getElementById("resetBtn").onclick=()=>{
+  answersA.fill(null); pickedB.clear();
+  document.querySelectorAll(".opt.on,.chip.on").forEach(b=>b.classList.remove("on"));
+  compute();
+};
+compute();
+</script>
+</body>
+</html>

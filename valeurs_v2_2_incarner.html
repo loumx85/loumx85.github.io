@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valeurs 2 · Incarner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#E7EFEF; --paper:#FFFFFF; --ink:#10303A; --muted:#5C7A80;
+    --lagoon:#0E8C9B; --lagoon-deep:#0A5A66; --line:#D3E0E0; --gold:#D9952F;
+    --shadow:0 1px 2px rgba(16,48,58,.04),0 8px 28px rgba(16,48,58,.07);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:clamp(28px,6vw,64px) clamp(18px,5vw,32px) 64px}
+
+  /* Hero */
+  .hero{display:flex; flex-direction:column; align-items:center; text-align:center; gap:18px; margin-bottom:clamp(36px,7vw,56px)}
+  .eyebrow{font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--lagoon-deep); font-weight:600}
+  .mark{width:72px; height:72px; display:block}
+  h1{
+    font-family:'Fraunces',Georgia,serif; font-weight:600;
+    font-size:clamp(1.9rem,6vw,2.9rem); line-height:1.08; letter-spacing:-.01em;
+    margin:.1em 0 0;
+  }
+  .thesis{color:var(--muted); max-width:44ch; margin:0; font-size:clamp(1rem,2.6vw,1.08rem)}
+
+  /* Step cards */
+  .step{
+    position:relative; background:var(--paper); border:1px solid var(--line);
+    border-radius:18px; padding:clamp(22px,5vw,32px); box-shadow:var(--shadow); margin-top:24px;
+  }
+  .step-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap}
+  .step-num{
+    font-family:'Fraunces',serif; font-weight:600; font-size:.82rem; letter-spacing:.04em;
+    color:#fff; background:var(--lagoon); border-radius:999px; padding:4px 12px; white-space:nowrap;
+  }
+  .step h2{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(1.3rem,4vw,1.6rem); margin:0; letter-spacing:-.01em}
+  .step .desc{color:var(--muted); margin:.55em 0 0; font-size:.98rem}
+
+  .toolbar{display:flex; align-items:center; gap:14px; margin:20px 0 14px; flex-wrap:wrap}
+  .copy-btn{
+    appearance:none; border:0; cursor:pointer; font-family:inherit; font-weight:600; font-size:.96rem;
+    color:#fff; background:var(--lagoon); padding:12px 20px; border-radius:11px;
+    display:inline-flex; align-items:center; gap:9px; transition:background .18s ease, transform .08s ease;
+  }
+  .copy-btn:hover{background:var(--lagoon-deep)}
+  .copy-btn:active{transform:translateY(1px)}
+  .copy-btn:focus-visible{outline:3px solid var(--gold); outline-offset:2px}
+  .copy-btn svg{width:17px; height:17px; flex:none}
+  .copy-btn.is-copied{background:var(--gold)}
+  .hint{font-size:.84rem; color:var(--muted)}
+
+  details.prompt{border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#F7FAFA}
+  details.prompt > summary{
+    cursor:pointer; list-style:none; padding:12px 16px; font-size:.85rem; font-weight:600;
+    color:var(--lagoon-deep); display:flex; align-items:center; gap:9px; user-select:none;
+  }
+  details.prompt > summary::-webkit-details-marker{display:none}
+  .chev{width:14px; height:14px; transition:transform .2s ease}
+  details.prompt[open] .chev{transform:rotate(90deg)}
+  pre.prompt-text{
+    margin:0; padding:0 18px 20px; border-top:1px solid var(--line);
+    white-space:pre-wrap; word-wrap:break-word; overflow-wrap:anywhere;
+    font-family:'Inter',sans-serif; font-size:.9rem; line-height:1.62; color:#1c3b44;
+    max-height:340px; overflow-y:auto;
+  }
+
+  .connector{display:flex; justify-content:center; padding:14px 0; color:var(--line)}
+  .connector svg{width:20px; height:30px}
+  .aide{background:#F1F6F6; border:1px dashed var(--line); border-radius:14px; padding:16px 18px; margin:6px 0 0}
+  .aide .aide-head{font-size:.92rem; color:var(--ink); margin:0 0 10px}
+  .aide .aide-head strong{color:var(--lagoon-deep)}
+  .aide .aide-prompt{font-family:'Inter',sans-serif; font-size:.85rem; line-height:1.5; color:#1c3b44; background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:0 0 12px; white-space:pre-wrap; word-wrap:break-word}
+  .copy-btn.small{padding:9px 16px; font-size:.9rem}
+
+  footer{margin-top:48px; text-align:center; color:var(--muted); font-size:.82rem; line-height:1.7}
+  footer .slogan{font-family:'Fraunces',serif; font-style:italic; color:var(--lagoon-deep); font-size:.95rem}
+
+  .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+
+  @media (prefers-reduced-motion:no-preference){
+    .step{opacity:0; transform:translateY(14px); animation:rise .6s ease forwards}
+    .step:nth-of-type(1){animation-delay:.05s}
+    .hero{opacity:0; transform:translateY(10px); animation:rise .55s ease forwards}
+    @keyframes rise{to{opacity:1; transform:none}}
+  }
+
+  .howto{list-style:none; counter-reset:s; padding:0; margin:18px 0 6px}
+  .howto li{counter-increment:s; position:relative; padding:0 0 10px 38px; font-size:.97rem}
+  .howto li::before{content:counter(s); position:absolute; left:0; top:-1px; width:26px; height:26px; border-radius:50%; background:var(--gold); color:#fff; font-weight:700; font-size:.85rem; display:flex; align-items:center; justify-content:center}
+  .note{background:#F1F6F6; border:1px dashed var(--line); border-radius:14px; padding:14px 18px; margin-top:22px; font-size:.92rem; color:var(--ink)}
+  .note strong{color:var(--lagoon-deep)}
+  .src{font-size:.8rem; color:var(--muted); font-style:italic; margin-top:6px}
+  .trail{display:flex; justify-content:center; gap:8px; flex-wrap:wrap; font-size:.8rem; font-weight:600; letter-spacing:.04em}
+  .trail span{padding:5px 12px; border-radius:999px; background:#fff; border:1px solid var(--line); color:var(--muted)}
+  .trail span.on{background:var(--lagoon); border-color:var(--lagoon); color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <span class="eyebrow">Formation C.L.É. · Atelier Valeurs</span>
+    <svg class="mark" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <line x1="60" y1="26" x2="60" y2="60" stroke="#0E8C9B" stroke-width="2"/>
+      <line x1="30" y1="90" x2="60" y2="60" stroke="#0E8C9B" stroke-width="2"/>
+      <line x1="90" y1="90" x2="60" y2="60" stroke="#0E8C9B" stroke-width="2"/>
+      <circle cx="60" cy="20" r="9" stroke="#0A5A66" stroke-width="2.5"/>
+      <circle cx="26" cy="94" r="9" stroke="#0A5A66" stroke-width="2.5"/>
+      <circle cx="94" cy="94" r="9" stroke="#0A5A66" stroke-width="2.5"/>
+      <circle cx="60" cy="61" r="11" fill="#0E8C9B"/>
+      <circle cx="60" cy="61" r="4" fill="#D9952F"/>
+    </svg>
+    <div class="trail"><span class="">1 · Identifier</span><span class="on">2 · Incarner</span><span class="">3 · Expérimenter</span></div>
+    <h1>2. Incarner</h1>
+    <p class="thesis"><strong>Une valeur, du mot à ma réalité.</strong> Tu choisis une de tes 3 valeurs. L'IA t'aide à dire ce qu'elle signifie pour toi, et où elle vit, ou pas, dans ton métier.</p>
+  </header>
+  <section class="step">
+    <div class="step-head"><span class="step-num">Bloc 2</span><h2>Mode d'emploi</h2></div>
+    <ol class="howto"><li>Clique sur <strong>Copier le prompt 2</strong>.</li><li>Colle-le dans le <strong>même chat</strong> que le bloc 1. Si tu as fait le bloc 1 sur papier, ouvre un nouveau chat : l'IA te demandera tes 3 valeurs.</li><li><strong>Réponds</strong> aux 4 questions. À la fin, garde ta carte et <strong>laisse le chat ouvert</strong>.</li></ol>
+    <div class="toolbar">
+      <button class="copy-btn" id="btnV" onclick="copyPrompt('promptV','btnV')" aria-describedby="liveV" data-label="Copier le prompt 2" data-live="liveV">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="lbl">Copier le prompt 2</span>
+      </button>
+      <span class="hint">Environ 12 minutes.</span>
+    </div>
+    <span class="sr" role="status" aria-live="polite" id="liveV"></span>
+    <details class="prompt">
+      <summary><svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Lire le prompt</summary>
+<pre class="prompt-text" id="promptV">CONTEXTE
+Je participe à un atelier en trois blocs : Identifier, Incarner, Expérimenter. Le bloc 1 est fait : j&#x27;ai identifié 3 valeurs. Ici, on fait seulement le bloc 2 : Incarner. J&#x27;en choisis une, et tu m&#x27;aides à passer du mot générique à ce que cette valeur signifie vraiment pour moi, et à la façon dont elle se vit, ou pas, dans mon métier d&#x27;enseignant.
+
+PRINCIPE
+- Un même mot (autonomie, transmission, liberté…) ne veut pas dire la même chose pour deux personnes. On cherche MON sens, pas une définition de dictionnaire.
+- Une valeur incarnée se voit dans des situations concrètes : ce que je fais, où, quand, avec qui.
+- Une journée qui me vide est souvent une journée où ma valeur est absente. On s&#x27;en sert.
+
+RÔLE
+Coach lucide et bienveillant. Tu poses des questions, tu ne donnes pas de leçon. Tu ne juges pas.
+
+TON
+Direct, clair, chaleureux. Tutoiement. Phrases courtes. Zéro jargon, zéro vocabulaire spirituel. Pas de tirets cadratins.
+
+RÈGLES DURES
+- Une seule question à la fois. Tu attends ma réponse avant la suivante.
+- Si ma réponse reste un mot abstrait ou une généralité, relance une seule fois : « Concrètement, qu&#x27;est-ce que tu fais quand tu la vis ? » ou « Donne-moi une situation de cette semaine. » Puis tu avances.
+- Tu n&#x27;inventes rien et tu ne choisis pas à ma place.
+- Tu t&#x27;arrêtes après la carte. Tu ne passes PAS au plan d&#x27;action : ce sera le bloc suivant.
+
+DÉMARRAGE
+Si tu as déjà ma CARTE 1 (mes 3 valeurs) plus haut dans ce chat, commence immédiatement par :
+« Bloc 2 : Incarner. Parmi tes 3 valeurs, laquelle as-tu envie de faire vivre davantage dans ton quotidien professionnel ? Ne cherche pas la bonne : prends celle qui te paraît la plus importante à explorer aujourd&#x27;hui. »
+Sinon, commence par :
+« Bloc 2 : Incarner. Colle-moi ta carte du bloc 1, ou écris simplement tes 3 valeurs et ce qui te vide. »
+Puis pose la question du choix ci-dessus.
+
+LES 4 QUESTIONS (une par une, après mon choix)
+1. Pour toi, cette valeur signifie… quoi, concrètement ? Avec tes mots.
+2. Dans ton métier, elle est déjà présente quand… ? Donne une situation précise.
+3. Elle est moins présente quand… ? (Si j&#x27;ai listé ce qui me vide, rappelle-le moi et demande si ça a un lien, sans l&#x27;imposer.)
+4. Si tu l&#x27;incarnais davantage, qu&#x27;est-ce qui changerait concrètement : pour toi, pour tes élèves, dans ta classe ?
+
+À LA FIN : MA CARTE 2
+Produis ce bloc, prêt à copier, et rien d&#x27;autre après :
+
+MA CARTE 2 · MA VALEUR INCARNÉE
+- Ma valeur : [mon mot]
+- Pour moi, elle signifie : …
+- Elle est déjà présente quand : …
+- Elle est moins présente quand : …
+- Si je l&#x27;incarnais davantage : …
+
+Puis écris seulement : « Garde ce chat ouvert. La suite se fait avec le groupe. »</pre>
+    </details>
+    <div class="note"><strong>Tu préfères le papier ?</strong> Les mêmes questions sont sur ta fiche. Tu peux passer de l'un à l'autre d'un bloc à l'autre.</div>
+    <p class="src">D'après David Laroche (programme Paradox), inspiré de la méthode de John Demartini.</p>
+  </section>
+  <footer>
+    <p class="slogan">Tu n'es pas cassé. Tu regardes au mauvais endroit.</p>
+    <p>Formation C.L.É. · Classe, Lien, Épanouissement · M. Vairaaroa</p>
+  </footer>
+</div>
+<script>
+  function copyPrompt(id, btnId){
+    var text = document.getElementById(id).textContent.trim();
+    var btn = document.getElementById(btnId);
+    var live = document.getElementById(btn.getAttribute('data-live'));
+    var orig = btn.getAttribute('data-label');
+    function done(ok){
+      var lbl = btn.querySelector('.lbl');
+      if(ok){
+        btn.classList.add('is-copied');
+        lbl.textContent = 'Copié \u2713';
+        if(live) live.textContent = 'Prompt copié dans le presse-papier.';
+        setTimeout(function(){
+          btn.classList.remove('is-copied');
+          lbl.textContent = orig;
+          if(live) live.textContent = '';
+        }, 2200);
+      } else {
+        lbl.textContent = 'Copie impossible';
+        if(live) live.textContent = 'La copie a échoué, sélectionne le texte manuellement.';
+        setTimeout(function(){ lbl.textContent = orig; }, 2200);
+      }
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ done(true); }).catch(function(){ fallbackCopy(text, done); });
+    } else {
+      fallbackCopy(text, done);
+    }
+  }
+  function fallbackCopy(text, done){
+    try{
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly','');
+      ta.style.position='absolute'; ta.style.left='-9999px';
+      document.body.appendChild(ta); ta.select();
+      var ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      done(ok);
+    }catch(e){ done(false); }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ma couleur dominante · Le langage secret de vos élèves</title>
+<style>
+  :root{ --ink:#1E2A38; --muted:#5B6B7B; --body:#2B3641; --line:#E2E8F0;
+    --rouge:#C0392B; --bleu:#1F6FB2; --vert:#27AE60; --jaune:#E8A800; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Segoe UI",Calibri,system-ui,sans-serif;color:var(--body);background:#EEF1F4;line-height:1.5;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 16px 80px;}
+  header{background:var(--ink);color:#fff;padding:30px 0 26px;}
+  .kicker{color:#9FB3C8;font-size:12px;letter-spacing:2px;font-weight:700;text-transform:uppercase;margin:0 0 8px;}
+  h1{font-family:Cambria,Georgia,serif;font-size:28px;margin:0 0 6px;}
+  .subtitle{color:var(--jaune);font-style:italic;font-size:17px;font-family:Cambria,Georgia,serif;margin:0 0 14px;}
+  .dots{display:flex;gap:8px;} .dots span{width:13px;height:13px;border-radius:50%;}
+  .intro{background:#fff;border-radius:12px;padding:16px 18px;margin:22px 0 8px;box-shadow:0 2px 8px rgba(0,0,0,.05);font-size:15px;}
+  .intro p{margin:0 0 8px;} .intro p:last-child{margin:0;}
+  .private{display:inline-block;background:#E9F6EE;color:#1E7A45;font-weight:600;border-radius:8px;padding:6px 10px;font-size:14px;}
+  .qcard{background:#fff;border-radius:12px;padding:16px 18px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .qprompt{font-weight:600;color:var(--ink);margin:0 0 10px;font-size:15.5px;}
+  .qprompt .qn{color:var(--muted);font-weight:700;margin-right:6px;}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;color:var(--body);
+       border-radius:9px;padding:10px 12px;margin:6px 0;font-size:14.5px;cursor:pointer;font-family:inherit;}
+  .opt.on{color:#fff;font-weight:600;border-color:transparent;}
+  .opt.on.rouge{background:var(--rouge);} .opt.on.bleu{background:var(--bleu);}
+  .opt.on.vert{background:var(--vert);} .opt.on.jaune{background:var(--jaune);}
+  .glabel{font-family:Cambria,serif;font-weight:700;color:var(--ink);margin:26px 0 4px;font-size:19px;}
+  .gsub{color:var(--muted);font-size:14px;margin:0 0 10px;}
+  .wrow{display:flex;align-items:center;gap:8px;background:#fff;border-radius:9px;padding:7px 10px;margin:6px 0;box-shadow:0 1px 5px rgba(0,0,0,.04);}
+  .wrow .wn{flex:none;width:24px;color:var(--muted);font-weight:700;font-size:12px;text-align:right;}
+  .wopts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;flex:1;}
+  .wchip{border:1.5px solid var(--line);background:#fff;color:var(--body);border-radius:8px;padding:8px 4px;font-size:13.5px;cursor:pointer;font-family:inherit;text-align:center;}
+  .wchip.on{color:#fff;font-weight:600;border-color:transparent;}
+  .wchip.on.rouge{background:var(--rouge);} .wchip.on.bleu{background:var(--bleu);} .wchip.on.vert{background:var(--vert);} .wchip.on.jaune{background:var(--jaune);}
+  @media(max-width:560px){ .wopts{grid-template-columns:repeat(2,1fr);} }
+  .progress{font-size:13px;color:var(--muted);font-weight:600;margin:8px 0 0;}
+  .results{background:#fff;border-radius:14px;padding:22px;margin:30px 0 0;box-shadow:0 4px 16px rgba(0,0,0,.08);}
+  .results h2{font-family:Cambria,serif;color:var(--ink);margin:0 0 14px;font-size:23px;}
+  .res-flex{display:flex;gap:28px;flex-wrap:wrap;align-items:center;}
+  .pie-box{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  #pie{width:180px;height:180px;border-radius:50%;background:conic-gradient(var(--line) 0 100%);}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;font-size:13px;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
+  .readout{flex:1;min-width:260px;font-size:17px;color:var(--ink);}
+  .pill{display:inline-block;padding:2px 11px;border-radius:20px;color:#fff;font-weight:700;font-size:15px;}
+  .muted{color:var(--muted);font-size:14.5px;}
+  .remind{background:#FFF7E0;border:1.5px solid var(--jaune);border-radius:12px;padding:12px 14px;margin-top:16px;font-size:14.5px;}
+  .empty{color:var(--muted);font-style:italic;font-size:15px;}
+  button.reset{margin-top:18px;border:1.5px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;}
+  .note{font-size:12.5px;color:var(--muted);margin-top:24px;text-align:center;}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <p class="kicker">Formation C.L.É. · Le langage secret de vos élèves</p>
+  <h1>Ma couleur dominante</h1>
+  <p class="subtitle">Un point de départ, pas une étiquette</p>
+  <div class="dots"><span style="background:var(--rouge)"></span><span style="background:var(--bleu)"></span><span style="background:var(--vert)"></span><span style="background:var(--jaune)"></span></div>
+</div></header>
+
+<div class="wrap">
+  <div class="intro">
+    <p>45 choix en deux séries : 30 lignes de mots, puis 15 situations. À chaque fois, choisis <b>une seule</b> réponse, la plus vraie « la plupart du temps », depuis tes plus anciens souvenirs.</p>
+    <p><span class="private">🔒 Rien n'est collecté : ce test est pour toi.</span></p>
+  </div>
+
+  <p class="glabel">1 · Les mots</p>
+  <p class="gsub">Pour chaque ligne, le seul mot qui te décrit le mieux.</p>
+  <div id="words"></div>
+  <p class="glabel">2 · Les situations</p>
+  <p class="gsub">Une seule réponse par situation.</p>
+  <div id="situations"></div>
+  <p class="progress" id="progress">0 / 45 répondu</p>
+
+  <div class="results">
+    <h2>Mon résultat</h2>
+    <div class="res-flex">
+      <div class="pie-box"><div id="pie"></div><div class="legend" id="legend"></div></div>
+      <div class="readout" id="out"><p class="empty">Réponds aux 45 choix pour voir ton résultat.</p></div>
+    </div>
+    <div class="remind">Ce test donne une hypothèse de départ. On est tous un mix des 4 couleurs, et l'être humain est bien plus complexe que 4 profils.</div>
+    <button class="reset" id="reset">↺ Tout effacer</button>
+  </div>
+
+  <p class="note">Adapté du Hartman Personality Profile, Dr. Taylor Hartman (<i>The People Code</i>). Vert remplace le Blanc.<br>Formation C.L.É. · LP Mahina · M. Vairaaroa</p>
+</div>
+
+<script>
+const COLORS={rouge:{name:"Rouge",hex:"#C0392B"},bleu:{name:"Bleu",hex:"#1F6FB2"},vert:{name:"Vert",hex:"#27AE60"},jaune:{name:"Jaune",hex:"#E8A800"}};
+const ORDER=["rouge","bleu","vert","jaune"];
+const DATA={"words": [["opiniâtre", "attentionné", "inventif", "extraverti"], ["orienté pouvoir", "perfectionniste", "indécis", "égocentrique"], ["dominant", "bienveillant", "tolérant", "enthousiaste"], ["intéressé", "méfiant", "hésitant", "naïf"], ["affirmé", "fiable", "gentil", "sociable"], ["critique des autres", "trop sensible", "timide", "envahissant"], ["responsable", "idéaliste", "prévenant", "joyeux"], ["querelleur", "irréaliste", "sans direction", "coupe la parole"], ["puissant", "réfléchi", "doux", "optimiste"], ["toujours raison", "culpabilisé", "sans entrain", "peu engagé"], ["orienté tâche", "sincère", "diplomate", "animé"], ["calculateur", "moralisateur", "s'auto-déprécie", "désorganisé"], ["décidé", "loyal", "content", "joueur"], ["autoritaire", "dur envers soi", "réticent", "taquin"], ["déterminé", "soucieux du détail", "bon auditeur", "fêtard"], ["impatient", "lunatique", "passif", "impulsif"], ["indépendant", "digne de confiance", "d'humeur égale", "confiant"], ["insensible", "qui juge", "ennuyeux", "indiscipliné"], ["pragmatique", "bien élevé", "accommodant", "spontané"], ["brusque", "difficile à satisfaire", "nonchalant", "bruyant"], ["confiant", "discipliné", "agréable", "charismatique"], ["arrogant", "anxieux", "têtu en silence", "dispersé"], ["orienté action", "analytique", "décontracté", "insouciant"], ["exigeant", "rancunier", "démotivé", "vaniteux"], ["volontaire", "respectueux", "patient", "aime s'amuser"], ["agressif", "souvent triste", "ambivalent", "étourdi"], ["logique", "émotif", "conciliant", "populaire"], ["dur", "délicat", "en retrait", "cabotin"], ["direct", "créatif", "adaptable", "comédien"], ["intimidant", "minutieux", "improductif", "fuit les réalités"]], "sit": [{"q": "Un employeur m'embaucherait surtout parce que je suis :", "o": ["Moteur, direct, je délègue.", "Méthodique, précis, fiable.", "Patient, adaptable, diplomate.", "Enjoué, vivant, décontracté."]}, {"q": "Quand je me sens menacé dans une relation proche, je :", "o": ["Réplique avec des faits et de la colère.", "Suis blessé, je peux ruminer une revanche.", "Deviens silencieux, en retrait, puis j'explose plus tard.", "Prends mes distances et évite le conflit."]}, {"q": "Ma vie a le plus de sens quand elle est :", "o": ["Orientée résultats et productive.", "Pleine de gens, de liens et de sens.", "Sans pression ni stress.", "Légère, joyeuse, optimiste."]}, {"q": "Enfant, j'étais :", "o": ["Têtu, vif, et/ou combatif.", "Sage, attentionné, et/ou sujet à la tristesse.", "Calme, tranquille, et/ou timide.", "Bavard, joyeux, et/ou joueur."]}, {"q": "Adulte, je suis :", "o": ["Affirmé, déterminé, et/ou autoritaire.", "Responsable, honnête, et/ou rancunier.", "Accommodant, content, et/ou peu motivé.", "Charismatique, positif, et/ou parfois excessif."]}, {"q": "Comme parent (ou référent d'un jeune), je suis :", "o": ["Exigeant, vif, intransigeant.", "Concerné, sensible, critique.", "Permissif, influençable, vite débordé.", "Joueur, décontracté, parfois peu rigoureux."]}, {"q": "Dans un désaccord avec un proche, je suis surtout :", "o": ["Buté sur les faits, je défends ma position.", "Soucieux des sentiments et des principes.", "Têtu en silence, mal à l'aise, confus.", "Expressif, mal à l'aise, prêt à composer."]}, {"q": "Si un proche a un problème, je suis :", "o": ["Protecteur, débrouillard, je propose des solutions.", "Concerné, empathique, loyal quoi qu'il arrive.", "Soutenant, patient, bon auditeur.", "Sans jugement, optimiste, je dédramatise."]}, {"q": "Quand je prends une décision, je suis :", "o": ["Affirmé, clair, logique.", "Réfléchi, précis, prudent.", "Indécis, hésitant, réticent.", "Impulsif, changeant, inconstant."]}, {"q": "Quand j'échoue, je me sens :", "o": ["Critique envers moi en silence, mais défensif à voix haute.", "Coupable, dur envers moi, je rumine.", "Troublé et inquiet, mais je le garde pour moi.", "Gêné et nerveux, je cherche à m'échapper."]}, {"q": "Si quelqu'un me trahit :", "o": ["Je m'énerve et cherche vite à rééquilibrer.", "Je suis profondément blessé, j'ai du mal à pardonner.", "Blessé en silence, je m'éloigne et/ou évite la personne.", "J'évite le conflit, je relativise, je vais vers d'autres."]}, {"q": "Le travail, pour moi, c'est :", "o": ["La façon la plus productive d'occuper son temps.", "Une activité saine, à bien faire, avant de jouer.", "Positif tant que j'y prends plaisir, sans pression.", "Un mal nécessaire, bien moins attirant que le jeu."]}, {"q": "En société, je suis le plus souvent :", "o": ["Craint par les autres.", "Admiré par les autres.", "Protégé par les autres.", "Envié par les autres."]}, {"q": "Dans une relation, je tiens surtout à être :", "o": ["Approuvé et avoir raison.", "Compris, apprécié, proche.", "Respecté, dans la tolérance et la paix.", "Valorisé, m'amuser, me sentir libre."]}, {"q": "Pour me sentir vivant, je recherche :", "o": ["L'aventure, le leadership, l'action.", "La sécurité, la créativité, le sens.", "L'acceptation et la sûreté.", "L'excitation, le plaisir, la compagnie des autres."]}]};
+const WORDS=DATA.words, SITUATIONS=DATA.sit;
+const answers=new Array(WORDS.length+SITUATIONS.length).fill(null);
+const TOTAL=answers.length;
+const ww=document.getElementById("words");
+WORDS.forEach((grp,wi)=>{
+  const row=document.createElement("div"); row.className="wrow";
+  row.innerHTML=`<div class="wn">${wi+1}.</div>`;
+  const opts=document.createElement("div"); opts.className="wopts";
+  grp.forEach((w,oi)=>{const b=document.createElement("button"); const k=ORDER[oi];
+    b.className="wchip "+k; b.textContent=w;
+    b.onclick=()=>{opts.querySelectorAll(".wchip").forEach(x=>x.classList.remove("on")); b.classList.add("on"); answers[wi]=k; compute();};
+    opts.appendChild(b);});
+  row.appendChild(opts); ww.appendChild(row);
+});
+const wrap=document.getElementById("situations");
+SITUATIONS.forEach((s,qi)=>{
+  const card=document.createElement("div"); card.className="qcard";
+  card.innerHTML=`<p class="qprompt"><span class="qn">${qi+31}.</span>${s.q}</p>`;
+  s.o.forEach((txt,oi)=>{
+    const b=document.createElement("button"); const k=ORDER[oi];
+    b.className="opt "+k; b.textContent=txt;
+    b.onclick=()=>{card.querySelectorAll(".opt").forEach(x=>x.classList.remove("on")); b.classList.add("on"); answers[30+qi]=k; compute();};
+    card.appendChild(b);
+  });
+  wrap.appendChild(card);
+});
+const pill=k=>`<span class="pill" style="background:${COLORS[k].hex}">${COLORS[k].name}</span>`;
+function compute(){
+  const c={rouge:0,bleu:0,vert:0,jaune:0}; answers.forEach(a=>{if(a)c[a]++;});
+  const n=answers.filter(Boolean).length;
+  document.getElementById("progress").textContent=`${n} / ${TOTAL} répondu`;
+  const pie=document.getElementById("pie"),leg=document.getElementById("legend"),out=document.getElementById("out");
+  if(n===0){pie.style.background="conic-gradient(var(--line) 0 100%)";leg.innerHTML="";out.innerHTML='<p class="empty">Réponds aux 45 choix pour voir ton résultat.</p>';return;}
+  let acc=0,segs=[],l="";
+  ORDER.forEach(k=>{const p=c[k]/n*100;segs.push(`${COLORS[k].hex} ${acc.toFixed(2)}% ${(acc+p).toFixed(2)}%`);acc+=p;l+=`<span><i style="background:${COLORS[k].hex}"></i>${COLORS[k].name} ${Math.round(p)}%</span>`;});
+  pie.style.background=`conic-gradient(${segs.join(",")})`; leg.innerHTML=l;
+  const max=Math.max(...ORDER.map(k=>c[k])); const top=ORDER.filter(k=>c[k]===max);
+  const min=Math.min(...ORDER.map(k=>c[k])); const low=ORDER.filter(k=>c[k]===min);
+  const head = top.length===1
+    ? `Ta couleur dominante selon ce test : ${pill(top[0])} <b>${Math.round(max/n*100)}%</b>`
+    : `Couleurs à égalité selon ce test : ${top.map(pill).join(" ")} <b>${Math.round(max/n*100)}%</b> chacune`;
+  const prov = n<TOTAL ? `<p class="muted">Résultat provisoire : il reste ${TOTAL-n} choix.</p>` : "";
+  out.innerHTML=`<p style="margin:0 0 8px">${head}</p><p class="muted" style="margin:0">La moins présente : ${low.map(pill).join(" ")}</p>${prov}`;
+}
+document.getElementById("reset").onclick=()=>{answers.fill(null);document.querySelectorAll(".opt.on,.wchip.on").forEach(b=>b.classList.remove("on"));compute();window.scrollTo(0,0);};
+compute();
+</script>
+</body>
+</html>
